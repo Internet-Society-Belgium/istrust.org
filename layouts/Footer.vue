@@ -1,8 +1,8 @@
 <template>
   <div class="py-4 flex flex-col items-center gap-4">
     <div class="flex gap-4 text-secondary dark:text-dark-secondary">
-      <nuxt-link :to="localePath('legal')">Legal</nuxt-link>
-      <nuxt-link :to="localePath('privacy')">Privacy</nuxt-link>
+      <nuxt-link :to="localePath('legal')">{{ $t('legal') }}</nuxt-link>
+      <nuxt-link :to="localePath('privacy')">{{ $t('privacy') }}</nuxt-link>
     </div>
     <p class="text-secondary-light dark:text-dark-secondary-light">
       2021 © Internet Society Chapter Belgium.

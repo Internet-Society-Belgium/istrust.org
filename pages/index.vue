@@ -9,7 +9,7 @@
           isTrust
         </h1>
         <h2 class="text-secondary dark:text-dark-secondary">
-          Verify the trustability of any website
+          {{ $t('index.description') }}
         </h2>
       </div>
 
@@ -23,3 +23,9 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({})
+</script>

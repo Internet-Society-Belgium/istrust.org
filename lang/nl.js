@@ -1,6 +1,8 @@
 export default {
   index: {
-    description: "Vérifie la fiabilité de n'importe quel site web",
+    description: 'De betrouwbaarheid van elke website verifiëren',
   },
-  footer: { made_by: 'Fait par' },
+  footer: { made_by: 'Gemaakt door' },
+  legal: 'Legal',
+  privacy: 'Privacy',
 }

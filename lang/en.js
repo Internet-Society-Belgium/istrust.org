@@ -3,4 +3,6 @@ export default {
     description: 'Verify the trustability of any website',
   },
   footer: { made_by: 'Made by' },
+  legal: 'Legal',
+  privacy: 'Privacy',
 }

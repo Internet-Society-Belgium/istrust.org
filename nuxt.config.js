@@ -85,8 +85,10 @@ export default {
         parsePages: false,
         pages: {
           legal: {
-            en: '/legal',
             fr: encodeURI('/légal'),
+          },
+          privacy: {
+            fr: encodeURI('/vie-privée'),
           },
         },
       },
