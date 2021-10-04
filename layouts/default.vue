@@ -1,25 +1,17 @@
 <template>
-  <div
-    class="
-      flex flex-col
-      justify-between
-      min-h-screen
-      bg-background
-      dark:bg-dark-background
-    "
-  >
+  <div class="bg-background dark:bg-dark-background min-h-screen">
+    <Header />
     <Nuxt />
-    <div class="bottom-0">
-      <Footer />
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import Footer from './Footer.vue'
+import Header from './Header.vue'
 
 export default defineComponent({
-  components: { Footer },
+  components: { Header, Footer },
 })
 </script>
