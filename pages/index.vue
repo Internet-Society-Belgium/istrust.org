@@ -19,6 +19,11 @@
         >
           <nuxt-img format="webp" src="/images/firefox.png" height="60" />
         </a>
+        <a
+          href="https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo"
+        >
+          <nuxt-img format="webp" src="/images/edge.png" height="60" />
+        </a>
       </div>
     </div>
   </div>
