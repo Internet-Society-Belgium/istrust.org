@@ -18,7 +18,7 @@
             </span>
             <a
               href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
-              class="italic"
+              class="italic text-secondary dark:text-dark-secondary"
               >v{{ latestVersion }}</a
             >
           </div>
@@ -45,7 +45,7 @@
                 py-4
                 px-6
                 bg-primary
-                text-container
+                text-dark-secondary
                 shadow
                 rounded-md
                 font-medium
@@ -62,7 +62,7 @@
                 py-4
                 px-6
                 bg-primary
-                text-container
+                text-dark-secondary
                 shadow
                 rounded-md
                 font-medium
@@ -76,7 +76,17 @@
       </div>
 
       <div class="flex flex-col m-6 justify-center items-center">
-        <div class="p-1 flex justify-center gap-1 bg-container rounded-md">
+        <div
+          class="
+            p-1
+            flex
+            justify-center
+            gap-1
+            bg-container
+            dark:bg-dark-container
+            rounded-md
+          "
+        >
           <button
             v-for="sc in screenshots.images.length"
             :key="sc - 1"
@@ -85,11 +95,13 @@
               h-9
               p-2
               rounded-md
-              hover:bg-secondary hover:bg-opacity-20
+              hover:bg-secondary
+              dark:hover:bg-dark-secondary
+              hover:bg-opacity-20
             "
             :class="
               sc - 1 === screenshots.current.value
-                ? 'bg-secondary bg-opacity-20'
+                ? 'bg-secondary dark:bg-dark-secondary bg-opacity-20'
                 : ''
             "
             @click="screenshots.current.value = sc - 1"
@@ -105,7 +117,15 @@
             40 * screenshots.current.value
           }px);`"
         >
-          <div class="mt-1 w-5 text-secondary text-opacity-20">
+          <div
+            class="
+              mt-1
+              w-5
+              text-secondary
+              dark:text-dark-secondary
+              text-opacity-20
+            "
+          >
             <svg viewBox="0 0 255 127.5">
               <polygon
                 class="fill-current"
@@ -117,13 +137,28 @@
         <nuxt-img
           format="webp"
           :src="screenshots.images[screenshots.current.value]"
-          class="rounded-xl border-4 border-secondary border-opacity-20"
+          class="
+            rounded-xl
+            border-4 border-secondary
+            dark:border-dark-secondary
+            border-opacity-20
+          "
         />
       </div>
     </section>
 
     <section id="download" class="flex justify-center">
-      <div class="w-1/2 py-10 flex justify-center bg-container rounded-md">
+      <div
+        class="
+          w-1/2
+          py-10
+          flex
+          justify-center
+          bg-container
+          dark:bg-dark-container
+          rounded-md
+        "
+      >
         <div class="flex gap-6">
           <a v-for="(b, i) in browsers" :key="i" :href="b.link">
             <img :src="b.icon" class="h-14 w-14" />

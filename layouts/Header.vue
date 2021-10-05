@@ -1,6 +1,16 @@
 <template>
-  <header class="sticky top-0 z-50 shadow bg-background">
-    <div class="flex justify-between px-10 py-4">
+  <header
+    class="
+      sticky
+      top-0
+      mx-8
+      z-50
+      border-b-2 border-secondary-light border-opacity-20
+      bg-background
+      dark:bg-dark-background
+    "
+  >
+    <div class="flex justify-between p-4">
       <a href="/">
         <img src="/icon/icon.svg" class="w-12 h-12" />
       </a>
