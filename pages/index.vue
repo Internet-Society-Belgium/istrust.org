@@ -3,7 +3,7 @@
     <section class="min-h-screen py-10 grid gap-4 grid-cols-1 md:grid-cols-2">
       <div class="flex items-center m-6 justify-center md:justify-end">
         <div class="flex flex-col gap-4">
-          <div class="flex gap-4 my-3">
+          <div v-if="latestVersion" class="flex gap-4 my-3">
             <span
               class="
                 uppercase
@@ -19,8 +19,17 @@
             <a
               href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
               class="italic text-secondary dark:text-dark-secondary"
-              >v{{ latestVersion }}</a
-            >
+              >v{{ latestVersion.name }} -
+              {{
+                $tc(
+                  'index.days_ago',
+                  latestVersion.days == 0 ? 0 : latestVersion.days == 1 ? 1 : 2,
+                  {
+                    days: latestVersion.days,
+                  }
+                )
+              }}
+            </a>
           </div>
           <h1
             class="
@@ -175,13 +184,7 @@ import { getBrowser } from '~/utils/browser'
 
 export default defineComponent({
   setup() {
-    const latestVersion = ref('')
-
-    fetch(
-      'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
-    )
-      .then((res) => res.json())
-      .then((data) => (latestVersion.value = data.name))
+    const latestVersion = ref<{ name: string; days: number }>()
 
     const screenshots = {
       current: ref(0),
@@ -205,6 +208,25 @@ export default defineComponent({
     const browser = ref<{ icon: string; link: string } | undefined>()
 
     onMounted(() => {
+      fetch(
+        'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.name || !data.published_at) return
+
+          const now = new Date().getTime()
+          const published = new Date(data.published_at).getTime()
+          const days = Math.round(
+            Math.abs((published - now) / (24 * 60 * 60 * 1000))
+          )
+
+          latestVersion.value = {
+            name: data.name,
+            days,
+          }
+        })
+
       const uaBrowser = getBrowser(navigator.userAgent)
       const browserIndex = browsers.findIndex((b) => b.name === uaBrowser)
       browser.value = {
