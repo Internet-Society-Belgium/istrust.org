@@ -3,7 +3,7 @@
     <section class="min-h-screen py-10 grid gap-4 grid-cols-1 md:grid-cols-2">
       <div class="flex items-center m-6 justify-center md:justify-end">
         <div class="flex flex-col gap-4">
-          <div class="flex gap-4 my-4">
+          <div class="flex gap-4 my-3">
             <span
               class="
                 uppercase
@@ -35,19 +35,43 @@
           <h2 class="text-secondary dark:text-dark-secondary text-2xl">
             {{ $t('index.description') }}
           </h2>
-          <button
-            class="
-              bg-primary
-              text-dark-secondary
-              m-4
-              p-3
-              rounded-md
-              font-medium
-            "
-            @click="scrollTo('download')"
-          >
-            Download
-          </button>
+          <div class="my-9">
+            <a
+              v-if="browser"
+              class="
+                inline-flex
+                items-center
+                gap-3
+                py-4
+                px-6
+                bg-primary
+                text-container
+                shadow
+                rounded-md
+                font-medium
+              "
+              :href="browser.link"
+            >
+              <img :src="browser.icon" class="h-8 w-8" />
+              {{ $t('index.get_the_addon') }}
+            </a>
+            <button
+              v-else
+              class="
+                gap-3
+                py-4
+                px-6
+                bg-primary
+                text-container
+                shadow
+                rounded-md
+                font-medium
+              "
+              @click="scrollTo('download')"
+            >
+              {{ $t('index.get_the_addon') }}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -101,15 +125,8 @@
     <section id="download" class="flex justify-center">
       <div class="w-1/2 py-10 flex justify-center bg-container rounded-md">
         <div class="flex gap-6">
-          <a
-            href="https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org"
-          >
-            <img src="/browser/firefox.svg" class="h-14 w-14" />
-          </a>
-          <a
-            href="https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo"
-          >
-            <img src="/browser/edge.svg" class="h-14 w-14" />
+          <a v-for="(b, i) in browsers" :key="i" :href="b.link">
+            <img :src="b.icon" class="h-14 w-14" />
           </a>
         </div>
       </div>
@@ -118,7 +135,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref, onMounted } from '@vue/composition-api'
+import { getBrowser } from '~/utils/browser'
 
 export default defineComponent({
   setup() {
@@ -135,11 +153,36 @@ export default defineComponent({
       images: ['/image/istrust_org.png', '/image/internetsociety_org.png'],
     }
 
+    const browsers = [
+      { name: 'Chrome', icon: 'browser/chrome.svg', link: '' },
+      {
+        name: 'Firefox',
+        icon: 'browser/firefox.svg',
+        link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
+      },
+      {
+        name: 'Edge',
+        icon: 'browser/edge.svg',
+        link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
+      },
+    ]
+
+    const browser = ref<{ icon: string; link: string } | undefined>()
+
+    onMounted(() => {
+      const uaBrowser = getBrowser(navigator.userAgent)
+      const browserIndex = browsers.findIndex((b) => b.name === uaBrowser)
+      browser.value = {
+        icon: browsers[browserIndex].icon,
+        link: browsers[browserIndex].link,
+      }
+    })
+
     const scrollTo = (id: string) => {
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
 
-    return { latestVersion, screenshots, scrollTo }
+    return { latestVersion, screenshots, browsers, browser, scrollTo }
   },
 })
 </script>
