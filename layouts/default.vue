@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-background dark:bg-dark-background min-h-screen">
+  <div class="bg-background dark:bg-dark-background">
     <Header />
-    <Nuxt />
+    <main class="min-h-screen">
+      <Nuxt />
+    </main>
     <Footer />
   </div>
 </template>

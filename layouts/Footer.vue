@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-4 flex flex-col items-center gap-4">
+  <footer class="pt-8 pb-4 flex flex-col items-center gap-4">
     <div class="flex gap-4 text-secondary dark:text-dark-secondary">
       <nuxt-link :to="localePath('legal')">{{ $t('legal') }}</nuxt-link>
       <nuxt-link :to="localePath('privacy')">{{ $t('privacy') }}</nuxt-link>

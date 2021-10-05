@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section class="h-screen grid gap-4 grid-cols-1 md:grid-cols-2">
+  <div>
+    <section class="min-h-screen py-10 grid gap-4 grid-cols-1 md:grid-cols-2">
       <div class="flex items-center m-6 justify-center md:justify-end">
         <div class="flex flex-col gap-4">
           <div class="flex gap-4 my-4">
