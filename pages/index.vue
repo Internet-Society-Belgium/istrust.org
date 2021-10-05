@@ -16,10 +16,11 @@
               "
               >New release
             </span>
-            <button class="flex items-center gap-2">
-              <p class="italic">v{{ latestVersion }}</p>
-              <img src="/svg/chevron-right.svg" class="h-6 w-6" />
-            </button>
+            <a
+              href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
+              class="italic"
+              >v{{ latestVersion }}</a
+            >
           </div>
           <h1
             class="
@@ -50,22 +51,11 @@
         </div>
       </div>
 
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex flex-col m-6 justify-center items-center">
         <div class="p-1 flex justify-center gap-1 bg-container rounded-md">
-          <div
-            class="w-9 h-9 rounded-md bg-secondary bg-opacity-10 filter blur-sm"
-          ></div>
-          <div
-            class="
-              w-9
-              h-9
-              rounded-md
-              bg-secondary-light bg-opacity-10
-              filter
-              blur-sm
-            "
-          ></div>
-          <div
+          <button
+            v-for="sc in screenshots.images.length"
+            :key="sc - 1"
             class="
               w-9
               h-9
@@ -73,36 +63,58 @@
               rounded-md
               hover:bg-secondary hover:bg-opacity-20
             "
+            :class="
+              sc - 1 === screenshots.current.value
+                ? 'bg-secondary bg-opacity-20'
+                : ''
+            "
+            @click="screenshots.current.value = sc - 1"
           >
             <img src="/icon/icon.svg" />
-          </div>
-          <div
-            class="w-9 h-9 rounded-md bg-secondary bg-opacity-10 filter blur-sm"
-          ></div>
-          <div
-            class="
-              w-9
-              h-9
-              rounded-md
-              bg-secondary-dark-container bg-opacity-10
-              filter
-              blur-sm
-            "
-          ></div>
+          </button>
         </div>
-        <div class="w-5 mt-1 text-secondary text-opacity-20">
-          <svg viewBox="0 0 255 127.5">
-            <polygon class="fill-current" points="0,127.5 127.5,0 255,127.5" />
-          </svg>
+        <div
+          class="flex w-full justify-center"
+          :style="`transform: translateX(${
+            (screenshots.images.length % 2 === 0 ? 20 : 0) +
+            -(40 * Math.floor(screenshots.images.length / 2)) +
+            40 * screenshots.current.value
+          }px);`"
+        >
+          <div class="mt-1 w-5 text-secondary text-opacity-20">
+            <svg viewBox="0 0 255 127.5">
+              <polygon
+                class="fill-current"
+                points="0,127.5 127.5,0 255,127.5"
+              />
+            </svg>
+          </div>
         </div>
         <nuxt-img
           format="webp"
-          src="/image/istrust_org.png"
+          :src="screenshots.images[screenshots.current.value]"
           class="rounded-xl border-4 border-secondary border-opacity-20"
         />
       </div>
     </section>
-  </main>
+
+    <section id="download" class="flex justify-center">
+      <div class="w-1/2 py-10 flex justify-center bg-container rounded-md">
+        <div class="flex gap-6">
+          <a
+            href="https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org"
+          >
+            <img src="/browser/firefox.svg" class="h-14 w-14" />
+          </a>
+          <a
+            href="https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo"
+          >
+            <img src="/browser/edge.svg" class="h-14 w-14" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -118,11 +130,16 @@ export default defineComponent({
       .then((res) => res.json())
       .then((data) => (latestVersion.value = data.name))
 
+    const screenshots = {
+      current: ref(0),
+      images: ['/image/istrust_org.png', '/image/internetsociety_org.png'],
+    }
+
     const scrollTo = (id: string) => {
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
 
-    return { latestVersion, scrollTo }
+    return { latestVersion, screenshots, scrollTo }
   },
 })
 </script>
