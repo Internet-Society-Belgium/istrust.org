@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 flex flex-col items-center gap-4">
+  <footer class="py-4 flex flex-col items-center gap-4">
     <div class="flex gap-4 text-secondary dark:text-dark-secondary">
       <nuxt-link :to="localePath('legal')">{{ $t('legal') }}</nuxt-link>
       <nuxt-link :to="localePath('privacy')">{{ $t('privacy') }}</nuxt-link>
@@ -9,7 +9,7 @@
       {{ $t('footer.made_by') }}
       <a href="https://progiciel.be" class="underline">Progiciel</a>
     </p>
-  </div>
+  </footer>
 </template>
 
 <script lang="ts">

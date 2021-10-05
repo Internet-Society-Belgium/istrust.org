@@ -1,16 +1,24 @@
 <template>
-  <div class="flex gap-2 text-secondary dark:text-dark-secondary">
-    <select v-model="lang" @change="$i18n.setLocale(lang)">
-      <option
-        v-for="locale in availableLocales"
-        :key="locale.code"
-        :value="locale.code"
-        :disabled="locale.code === $i18n.locale"
-      >
-        {{ locale.code }}
-      </option>
-    </select>
-  </div>
+  <header class="sticky top-0 z-50 shadow bg-background">
+    <div class="flex justify-between px-10 py-4">
+      <a href="/">
+        <img src="/icon/icon.svg" class="w-12 h-12" />
+      </a>
+
+      <div class="flex gap-2 text-secondary dark:text-dark-secondary">
+        <select v-model="lang" @change="$i18n.setLocale(lang)">
+          <option
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            :value="locale.code"
+            :disabled="locale.code === $i18n.locale"
+          >
+            {{ locale.code }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script lang="ts">
