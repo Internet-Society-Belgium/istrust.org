@@ -4,7 +4,7 @@
       <nuxt-link :to="localePath('legal')">{{ $t('legal') }}</nuxt-link>
       <nuxt-link :to="localePath('privacy')">{{ $t('privacy') }}</nuxt-link>
     </div>
-    <p class="text-secondary-light dark:text-dark-secondary-light">
+    <p class="text-center text-secondary-light dark:text-dark-secondary-light">
       2021 © Internet Society Chapter Belgium.
       {{ $t('footer.made_by') }}
       <a href="https://progiciel.be" class="underline">Progiciel</a>
