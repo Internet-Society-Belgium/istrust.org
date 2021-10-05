@@ -47,6 +47,7 @@ export default {
         provider: 'static',
       },
     ],
+    '@nuxtjs/svg',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
