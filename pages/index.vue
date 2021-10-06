@@ -44,7 +44,7 @@
           <h2 class="text-secondary dark:text-dark-secondary text-2xl">
             {{ $t('index.description') }}
           </h2>
-          <div class="my-9">
+          <div class="mt-9">
             <a
               v-if="browser"
               class="
@@ -80,6 +80,39 @@
             >
               {{ $t('index.get_the_addon') }}
             </button>
+          </div>
+
+          <div v-if="browser" class="flex gap-2">
+            <div v-if="browser.rating" class="flex flex-row items-center">
+              <img
+                v-for="star in browser.rating.average"
+                :key="star"
+                src="/svg/star.svg"
+                class="w-6 h-6"
+              />
+              <p
+                class="
+                  px-1
+                  text-sm text-secondary-light
+                  dark:text-dark-secondary-light
+                "
+              >
+                ({{ browser.rating.count }})
+              </p>
+            </div>
+            <div v-else class="flex flex-row items-center">
+              <img
+                v-for="star in 5"
+                :key="star"
+                src="/svg/star.svg"
+                class="w-6 h-6 opacity-50"
+              />
+            </div>
+            <a
+              :href="browser.review"
+              class="text-secondary dark:text-dark-secondary"
+              >{{ $t('index.review') }}</a
+            >
           </div>
         </div>
       </div>
@@ -204,20 +237,32 @@ export default defineComponent({
         name: 'Chrome',
         icon: 'browser/chrome.svg',
         link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+        review:
+          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
       {
         name: 'Firefox',
         icon: 'browser/firefox.svg',
         link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
+        review: 'https://addons.mozilla.org/en-US/reviewers/review/2721902',
       },
       {
         name: 'Edge',
         icon: 'browser/edge.svg',
         link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
+        review: '',
       },
     ]
 
-    const browser = ref<{ icon: string; link: string } | undefined>()
+    const browser = ref<
+      | {
+          icon: string
+          link: string
+          review: string
+          rating?: { average: number; count: number }
+        }
+      | undefined
+    >()
 
     onMounted(() => {
       dark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -251,6 +296,20 @@ export default defineComponent({
       browser.value = {
         icon: browsers[browserIndex].icon,
         link: browsers[browserIndex].link,
+        review: browsers[browserIndex].review,
+      }
+
+      if (uaBrowser === 'Firefox') {
+        fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
+          .then((res) => res.json())
+          .then((data) => {
+            if (!data?.ratings?.average || !data?.ratings?.count) return
+            if (!browser.value) return
+            browser.value.rating = {
+              average: data.ratings.average,
+              count: data.ratings.count,
+            }
+          })
       }
     })
 
@@ -258,7 +317,14 @@ export default defineComponent({
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
 
-    return { dark, latestVersion, screenshots, browsers, browser, scrollTo }
+    return {
+      dark,
+      latestVersion,
+      screenshots,
+      browsers,
+      browser,
+      scrollTo,
+    }
   },
 })
 </script>
