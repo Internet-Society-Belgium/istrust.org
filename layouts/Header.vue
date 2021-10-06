@@ -1,28 +1,28 @@
 <template>
   <header class="sticky top-0 z-50 bg-background dark:bg-dark-background">
-    <div
-      class="
-        max-w-6xl
-        mx-auto
-        border-b-2 border-secondary-light border-opacity-20
-      "
-    >
-      <div class="flex justify-between p-4">
+    <div class="border-b-2 border-secondary-light border-opacity-20">
+      <div class="flex justify-between py-4 px-8">
         <a href="/">
           <img src="/icon/icon.svg" class="w-12 h-12" />
         </a>
 
-        <div class="flex gap-2 text-secondary dark:text-dark-secondary">
-          <select v-model="lang" @change="$i18n.setLocale(lang)">
-            <option
-              v-for="locale in availableLocales"
-              :key="locale.code"
-              :value="locale.code"
-              :disabled="locale.code === $i18n.locale"
-            >
+        <div class="flex items-center text-secondary dark:text-dark-secondary">
+          <button
+            v-for="locale in locales"
+            :key="locale.code"
+            :disabled="locale.code === $i18n.locale"
+            class="w-10 h-8 rounded"
+            :class="
+              locale.code === $i18n.locale
+                ? 'bg-primary bg-opacity-20 text-primary'
+                : 'text-secondary dark:text-dark-secondary hover:text-primary'
+            "
+            @click="$i18n.setLocale(locale.code)"
+          >
+            <span class="uppercase text-sm font-semibold">
               {{ locale.code }}
-            </option>
-          </select>
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    availableLocales() {
+    locales() {
       return this.$i18n.locales as LocaleObject[]
     },
   },
