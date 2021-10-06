@@ -200,7 +200,11 @@ export default defineComponent({
     }
 
     const browsers = [
-      { name: 'Chrome', icon: 'browser/chrome.svg', link: '' },
+      {
+        name: 'Chrome',
+        icon: 'browser/chrome.svg',
+        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+      },
       {
         name: 'Firefox',
         icon: 'browser/firefox.svg',
