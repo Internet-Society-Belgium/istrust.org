@@ -14,7 +14,7 @@
                 py-1
                 rounded-md
               "
-              >New release
+              >{{ $t('index.new_release') }}
             </span>
             <a
               href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
