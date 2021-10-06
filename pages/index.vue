@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="min-h-screen py-10 grid gap-4 grid-cols-1 md:grid-cols-2">
-      <div class="flex items-center m-6 justify-center md:justify-end">
+      <div class="flex items-center m-6 justify-center">
         <div class="flex flex-col gap-4">
           <div v-if="latestVersion" class="flex gap-4 my-3">
             <span
@@ -105,12 +105,12 @@
               p-2
               rounded-md
               hover:bg-secondary
-              dark:hover:bg-dark-secondary
+              hover:dark:bg-dark-secondary
               hover:bg-opacity-20
             "
             :class="
               sc - 1 === screenshots.current.value
-                ? 'bg-secondary dark:bg-dark-secondary bg-opacity-20'
+                ? 'bg-secondary dark:bg-dark-secondary bg-opacity-20 dark:bg-opacity-20'
                 : ''
             "
             @click="screenshots.current.value = sc - 1"
@@ -184,6 +184,7 @@ import { getBrowser } from '~/utils/browser'
 
 export default defineComponent({
   setup() {
+    const dark = ref(false)
     const latestVersion = ref<{ name: string; days: number }>()
 
     const screenshots = {
@@ -208,6 +209,13 @@ export default defineComponent({
     const browser = ref<{ icon: string; link: string } | undefined>()
 
     onMounted(() => {
+      dark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+          dark.value = e.matches
+        })
+
       fetch(
         'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
       )
@@ -239,7 +247,7 @@ export default defineComponent({
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
 
-    return { latestVersion, screenshots, browsers, browser, scrollTo }
+    return { dark, latestVersion, screenshots, browsers, browser, scrollTo }
   },
 })
 </script>

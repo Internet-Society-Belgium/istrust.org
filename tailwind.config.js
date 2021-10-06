@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     colors: {
       primary: '#0077FF', // HSB(210, 100, 100)
