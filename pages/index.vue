@@ -145,7 +145,11 @@
         </div>
         <nuxt-img
           format="webp"
-          :src="screenshots.images[screenshots.current.value]"
+          :src="
+            dark
+              ? screenshots.images[screenshots.current.value].dark
+              : screenshots.images[screenshots.current.value].light
+          "
           class="
             rounded-xl
             border-4 border-secondary
@@ -189,7 +193,10 @@ export default defineComponent({
 
     const screenshots = {
       current: ref(0),
-      images: ['/image/istrust_org.png', '/image/internetsociety_org.png'],
+      images: [
+        { light: '/image/istrust_org.png', dark: '/image/istrust_org.png' },
+        { light: '/image/istrust_org.png', dark: '/image/istrust_org.png' },
+      ],
     }
 
     const browsers = [
