@@ -4,7 +4,7 @@ export function getBrowser(userAgent: string): Browser | undefined {
   if (userAgent.includes('Firefox')) return 'Firefox'
 
   if (userAgent.includes('Chrome')) {
-    if (userAgent.indexOf('Edg')) return 'Edge'
+    if (userAgent.includes('Edg')) return 'Edge'
     return 'Chrome'
   }
 
