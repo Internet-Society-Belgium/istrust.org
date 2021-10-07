@@ -75,10 +75,8 @@ export default {
         lazy: true,
         langDir: 'lang/',
         detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'lang',
-          redirectOn: 'root',
-          cookieSecure: true,
+          alwaysRedirect: true,
+          useCookie: false,
         },
         parsePages: false,
         pages: {
