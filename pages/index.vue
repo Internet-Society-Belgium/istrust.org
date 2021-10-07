@@ -61,7 +61,7 @@
               "
               :href="browser.link"
             >
-              <img :src="browser.icon" class="h-8 w-8" />
+              <img :src="browser.icon" alt="" class="h-8 w-8" />
               {{ $t('index.get_the_addon') }}
             </a>
             <button
@@ -88,6 +88,7 @@
                 v-for="star in browser.rating.average"
                 :key="star"
                 src="/svg/star.svg"
+                alt="star"
                 class="w-6 h-6"
               />
               <p
@@ -105,6 +106,7 @@
                 v-for="star in 5"
                 :key="star"
                 src="/svg/star.svg"
+                alt="star"
                 class="w-6 h-6 opacity-50"
               />
             </div>
@@ -116,81 +118,7 @@
           </div>
         </div>
       </div>
-
-      <div class="flex flex-col m-6 justify-center items-center">
-        <div
-          class="
-            p-1
-            flex
-            justify-center
-            gap-1
-            bg-container
-            dark:bg-dark-container
-            rounded-md
-          "
-        >
-          <button
-            v-for="sc in screenshots.images.length"
-            :key="sc - 1"
-            class="
-              w-9
-              h-9
-              p-2
-              rounded-md
-              hover:bg-secondary
-              hover:dark:bg-dark-secondary
-              hover:bg-opacity-20
-            "
-            :class="
-              sc - 1 === screenshots.current.value
-                ? 'bg-secondary dark:bg-dark-secondary bg-opacity-20 dark:bg-opacity-20'
-                : ''
-            "
-            @click="screenshots.current.value = sc - 1"
-          >
-            <img src="/icon/icon.svg" />
-          </button>
-        </div>
-        <div
-          class="flex w-full justify-center"
-          :style="`transform: translateX(${
-            (screenshots.images.length % 2 === 0 ? 20 : 0) +
-            -(40 * Math.floor(screenshots.images.length / 2)) +
-            40 * screenshots.current.value
-          }px);`"
-        >
-          <div
-            class="
-              mt-1
-              w-5
-              text-secondary
-              dark:text-dark-secondary
-              text-opacity-20
-            "
-          >
-            <svg viewBox="0 0 255 127.5">
-              <polygon
-                class="fill-current"
-                points="0,127.5 127.5,0 255,127.5"
-              />
-            </svg>
-          </div>
-        </div>
-        <nuxt-img
-          format="webp"
-          :src="
-            dark
-              ? screenshots.images[screenshots.current.value].dark
-              : screenshots.images[screenshots.current.value].light
-          "
-          class="
-            rounded-xl
-            border-4 border-secondary
-            dark:border-dark-secondary
-            border-opacity-20
-          "
-        />
-      </div>
+      <Screenshots />
     </section>
 
     <section id="download" class="flex justify-center">
@@ -207,7 +135,7 @@
       >
         <div class="flex gap-6">
           <a v-for="(b, i) in browsers" :key="i" :href="b.link">
-            <img :src="b.icon" class="h-14 w-14" />
+            <img :src="b.icon" alt="" class="h-14 w-14" />
           </a>
         </div>
       </div>
@@ -218,19 +146,12 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from '@vue/composition-api'
 import { getBrowser } from '~/utils/browser'
+import Screenshots from '~/components/Screenshots.vue'
 
 export default defineComponent({
+  components: { Screenshots },
   setup() {
-    const dark = ref(false)
     const latestVersion = ref<{ name: string; days: number }>()
-
-    const screenshots = {
-      current: ref(0),
-      images: [
-        { light: '/image/istrust_org.png', dark: '/image/istrust_org.png' },
-        { light: '/image/istrust_org.png', dark: '/image/istrust_org.png' },
-      ],
-    }
 
     const browsers = [
       {
@@ -265,13 +186,6 @@ export default defineComponent({
     >()
 
     onMounted(() => {
-      dark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (e) => {
-          dark.value = e.matches
-        })
-
       fetch(
         'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
       )
@@ -318,9 +232,7 @@ export default defineComponent({
     }
 
     return {
-      dark,
       latestVersion,
-      screenshots,
       browsers,
       browser,
       scrollTo,
