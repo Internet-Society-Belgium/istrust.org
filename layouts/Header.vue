@@ -3,7 +3,7 @@
     <div class="border-b-2 border-secondary-light border-opacity-20">
       <div class="flex justify-between py-4 px-8">
         <a href="/">
-          <img src="/icon/icon.svg" class="w-12 h-12" />
+          <img src="/icon/icon.svg" alt="" class="w-12 h-12" />
         </a>
 
         <div class="flex items-center text-secondary dark:text-dark-secondary">

@@ -1,6 +1,6 @@
 <template>
   <div :class="dark ? 'dark' : ''">
-    <div class="bg-background dark:bg-dark-background">
+    <div class="bg-background dark:bg-dark-background select-none">
       <div class="max-w-6xl mx-auto">
         <Header />
         <main class="min-h-screen">
