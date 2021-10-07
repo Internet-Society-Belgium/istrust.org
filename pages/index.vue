@@ -58,14 +58,21 @@
                 shadow
                 rounded-md
                 font-medium
+                group
+                hover:bg-opacity-95
               "
               :href="browser.link"
             >
-              <img :src="browser.icon" alt="" class="h-8 w-8" />
+              <img
+                :src="browser.icon"
+                alt=""
+                class="h-8 w-8 group-hover:opacity-95 pointer-events-none"
+              />
               {{ $t('index.get_the_addon') }}
             </a>
             <button
               v-else
+              type="button"
               class="
                 gap-3
                 py-4
@@ -89,7 +96,7 @@
                 :key="star"
                 src="/svg/star.svg"
                 alt="star"
-                class="w-6 h-6"
+                class="w-6 h-6 pointer-events-none"
               />
               <p
                 class="
@@ -107,7 +114,7 @@
                 :key="star"
                 src="/svg/star.svg"
                 alt="star"
-                class="w-6 h-6 opacity-50"
+                class="w-6 h-6 opacity-50 pointer-events-none"
               />
             </div>
             <a
@@ -135,7 +142,7 @@
       >
         <div class="flex gap-6">
           <a v-for="(b, i) in browsers" :key="i" :href="b.link">
-            <img :src="b.icon" alt="" class="h-14 w-14" />
+            <img :src="b.icon" alt="" class="h-14 w-14 pointer-events-none" />
           </a>
         </div>
       </div>

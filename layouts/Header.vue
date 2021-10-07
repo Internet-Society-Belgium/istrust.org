@@ -3,13 +3,15 @@
     <div class="border-b-2 border-secondary-light border-opacity-20">
       <div class="flex justify-between py-4 px-8">
         <a href="/">
-          <img src="/icon/icon.svg" alt="" class="w-12 h-12" />
+          <img src="/icon/icon.svg" alt="" class="w-12 h-12 pointer-events-none" />
         </a>
 
         <div class="flex items-center text-secondary dark:text-dark-secondary">
           <button
+
             v-for="locale in locales"
             :key="locale.code"
+            type="button"
             :disabled="locale.code === $i18n.locale"
             class="w-10 h-8 rounded"
             :class="

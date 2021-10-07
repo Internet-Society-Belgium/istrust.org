@@ -1,11 +1,10 @@
 <template>
   <div class="flex flex-col m-6 justify-center items-center">
     <div>
-      <div>
+      <div class="flex justify-end">
         <div
           class="
             p-1
-            w-min
             flex
             justify-center
             items-center
@@ -16,6 +15,7 @@
           "
         >
           <button
+            type="button"
             class="
               w-9
               h-9
@@ -45,6 +45,7 @@
             </svg>
           </button>
           <button
+            type="button"
             class="
               w-9
               h-9
@@ -93,7 +94,7 @@
                 screenshot.url.host &&
                 screenshot.url.pathname
               "
-              class="flex overflow-clip"
+              class="flex truncate"
             >
               <span
                 class="text-secondary-light dark:text-dark-secondary-light"
@@ -118,7 +119,7 @@
             </div>
           </div>
           <div class="w-9 h-9 p-2 rounded">
-            <img src="/icon/icon.svg" alt="" />
+            <img src="/icon/icon.svg" alt="" class="pointer-events-none" />
           </div>
         </div>
       </div>
@@ -146,10 +147,12 @@
             format="webp"
             :src="screenshot.image"
             class="
+              max-w-full
               rounded-xl
               border-4 border-secondary
               dark:border-dark-secondary
               border-opacity-20
+              pointer-events-none
             "
           />
         </div>
