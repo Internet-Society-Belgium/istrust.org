@@ -1,9 +1,16 @@
 <template>
   <div>
-    <section class="min-h-screen py-10 grid gap-4 grid-cols-1 md:grid-cols-2">
-      <div class="flex items-center m-6 justify-center">
-        <div class="flex flex-col gap-4">
-          <div v-if="latestVersion" class="flex gap-4 my-3">
+    <section
+      class="min-h-screen py-10 px-20 grid lg:gap-10 grid-cols-1 lg:grid-cols-2"
+    >
+      <div class="flex items-center justify-center">
+        <div class="flex flex-col gap-4 items-center lg:items-start">
+          <a
+            v-if="latestVersion"
+            href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
+            target="_blank"
+            class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
+          >
             <span
               class="
                 uppercase
@@ -16,9 +23,7 @@
               "
               >{{ $t('index.new_release') }}
             </span>
-            <a
-              href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
-              class="italic text-secondary dark:text-dark-secondary"
+            <span class="text-sm font-medium text-primary dark:text-primary"
               >v{{ latestVersion.name }} -
               {{
                 $tc(
@@ -29,19 +34,28 @@
                   }
                 )
               }}
-            </a>
-          </div>
+            </span>
+          </a>
           <h1
             class="
               text-secondary
               dark:text-dark-secondary
               text-5xl
               font-semibold
+              text-center
+              lg:text-left
             "
           >
             isTrust
           </h1>
-          <h2 class="text-secondary dark:text-dark-secondary text-2xl">
+          <h2
+            class="
+              text-secondary
+              dark:text-dark-secondary
+              text-2xl text-center
+              lg:text-left
+            "
+          >
             {{ $t('index.description') }}
           </h2>
           <div class="mt-9">
@@ -213,24 +227,27 @@ export default defineComponent({
         })
 
       const uaBrowser = getBrowser(navigator.userAgent)
-      const browserIndex = browsers.findIndex((b) => b.name === uaBrowser)
-      browser.value = {
-        icon: browsers[browserIndex].icon,
-        link: browsers[browserIndex].link,
-        review: browsers[browserIndex].review,
-      }
+      const matchedBrowser = browsers.find((b) => b.name === uaBrowser)
 
-      if (uaBrowser === 'Firefox') {
-        fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
-          .then((res) => res.json())
-          .then((data) => {
-            if (!data?.ratings?.average || !data?.ratings?.count) return
-            if (!browser.value) return
-            browser.value.rating = {
-              average: data.ratings.average,
-              count: data.ratings.count,
-            }
-          })
+      if (matchedBrowser) {
+        browser.value = {
+          icon: matchedBrowser.icon,
+          link: matchedBrowser.link,
+          review: matchedBrowser.review,
+        }
+
+        if (uaBrowser === 'Firefox') {
+          fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
+            .then((res) => res.json())
+            .then((data) => {
+              if (!data?.ratings?.average || !data?.ratings?.count) return
+              if (!browser.value) return
+              browser.value.rating = {
+                average: data.ratings.average,
+                count: data.ratings.count,
+              }
+            })
+        }
       }
     })
 

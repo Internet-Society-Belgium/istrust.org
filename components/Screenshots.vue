@@ -88,7 +88,7 @@
             class="
               h-9
               w-60
-              md:w-80
+              sm:w-80
               py-1
               px-3
               flex
