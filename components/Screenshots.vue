@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col m-6 justify-center items-center">
+  <div class="flex flex-col justify-center items-center">
     <div>
       <div class="flex justify-end">
         <div
@@ -25,12 +25,17 @@
               rounded
               hover:bg-secondary
               dark:hover:bg-dark-secondary
-              hover:bg-opacity-20
-              dark:hover:bg-opacity-20
+              hover:bg-opacity-10
+              dark:hover:bg-opacity-10
+              disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
+              disabled:text-opacity-20
+              dark:disabled:text-opacity-20
+              disabled:pointer-events-none
             "
-            @click="previousScreenshot"
+            :disabled="currentScreenshot < 1"
+            @click="currentScreenshot -= 1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,12 +60,17 @@
               rounded
               hover:bg-secondary
               dark:hover:bg-dark-secondary
-              hover:bg-opacity-20
-              dark:hover:bg-opacity-20
+              hover:bg-opacity-10
+              dark:hover:bg-opacity-10
+              disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
+              disabled:text-opacity-20
+              dark:disabled:text-opacity-20
+              disabled:pointer-events-none
             "
-            @click="nextScreenshot"
+            :disabled="currentScreenshot >= maxScreenshots - 1"
+            @click="currentScreenshot += 1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -214,6 +224,7 @@ export default Vue.extend({
   data() {
     return {
       dark: false,
+      maxScreenshots: screenshots.length,
       currentScreenshot: 0,
       screenshot: { url: {} as URL, image: '' },
     }
@@ -242,23 +253,6 @@ export default Vue.extend({
       .addEventListener('change', (e) => {
         this.dark = e.matches
       })
-  },
-  methods: {
-    previousScreenshot() {
-      if (this.currentScreenshot === 0) {
-        this.currentScreenshot = screenshots.length - 1
-      } else {
-        this.currentScreenshot -= 1
-      }
-    },
-
-    nextScreenshot() {
-      if (this.currentScreenshot === screenshots.length - 1) {
-        this.currentScreenshot = 0
-      } else {
-        this.currentScreenshot += 1
-      }
-    },
   },
 })
 </script>
