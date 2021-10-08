@@ -142,21 +142,23 @@
       <Screenshots />
     </section>
 
-    <section id="download" class="flex justify-center">
-      <div
-        class="
-          w-1/2
-          py-10
-          flex
-          justify-center
-          bg-container
-          dark:bg-dark-container
-          rounded-md
-        "
-      >
-        <div class="flex gap-6">
-          <a v-for="(b, i) in browsers" :key="i" :href="b.link">
-            <img :src="b.icon" alt="" class="h-14 w-14 pointer-events-none" />
+    <section id="download" class="py-10 px-20">
+      <div class="text-center p-10">
+        <h3 class="text-secondary text-4xl font-semibold p-4">Download</h3>
+        <h4 class="text-secondary-light">All available platforms</h4>
+      </div>
+      <div class="flex justify-center">
+        <div class="flex gap-10">
+          <a
+            v-for="(b, i) in browsers"
+            :key="i"
+            :href="b.link"
+            class="p-10 flex flex-col gap-4 bg-container rounded-md"
+          >
+            <img :src="b.icon" alt="" class="h-20 w-2à pointer-events-none" />
+            <p class="text-secondary text-lg font-medium text-center">
+              {{ b.name }}
+            </p>
           </a>
         </div>
       </div>
