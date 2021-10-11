@@ -1,13 +1,21 @@
 <template>
-  <div>
+  <div class="flex flex-col gap-20 pt-20 lg:pt-0 pb-20">
     <section
-      class="min-h-screen py-10 px-20 grid lg:gap-10 grid-cols-1 lg:grid-cols-2"
+      class="
+        min-h-screen
+        px-20
+        grid
+        gap-20
+        lg:gap-10
+        grid-cols-1
+        lg:grid-cols-2
+      "
     >
       <div class="flex items-center justify-center">
         <div class="flex flex-col gap-4 items-center lg:items-start">
           <a
             v-if="latestVersion"
-            href="https://github.com/Internet-Society-Belgium/isTrust/blob/main/CHANGELOG.md"
+            href="https://github.com/Internet-Society-Belgium/isTrust/releases"
             target="_blank"
             class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
           >
@@ -142,25 +150,23 @@
       <Screenshots />
     </section>
 
-    <section id="download" class="py-10 px-20">
-      <div class="text-center p-10">
-        <h3 class="text-secondary text-4xl font-semibold p-4">Download</h3>
-        <h4 class="text-secondary-light">All available platforms</h4>
+    <section id="download" class="px-20 gap-14 flex flex-col items-center">
+      <div class="text-center">
+        <h3 class="text-secondary text-4xl font-semibold p-4">Downloads</h3>
+        <h4 class="text-secondary-light">All platforms available</h4>
       </div>
-      <div class="flex justify-center">
-        <div class="flex gap-10">
-          <a
-            v-for="(b, i) in browsers"
-            :key="i"
-            :href="b.link"
-            class="p-10 flex flex-col gap-4 bg-container rounded-md"
-          >
-            <img :src="b.icon" alt="" class="h-20 w-2à pointer-events-none" />
-            <p class="text-secondary text-lg font-medium text-center">
-              {{ b.name }}
-            </p>
-          </a>
-        </div>
+      <div class="flex flex-wrap justify-center max-w-xl gap-10">
+        <a
+          v-for="(b, i) in browsers"
+          :key="i"
+          :href="b.link"
+          class="p-10 flex flex-col gap-4 bg-container rounded-md"
+        >
+          <img :src="b.icon" alt="" class="h-20 w-20 pointer-events-none" />
+          <p class="text-secondary text-lg font-medium text-center">
+            {{ b.name }}
+          </p>
+        </a>
       </div>
     </section>
   </div>
@@ -195,6 +201,27 @@ export default defineComponent({
         icon: 'browser/edge.svg',
         link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
         review: '',
+      },
+      {
+        name: 'Opera',
+        icon: 'browser/opera.svg',
+        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+        review:
+          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+      },
+      {
+        name: 'Brave',
+        icon: 'browser/brave.svg',
+        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+        review:
+          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+      },
+      {
+        name: 'Vivaldi',
+        icon: 'browser/vivaldi.svg',
+        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+        review:
+          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
     ]
 
