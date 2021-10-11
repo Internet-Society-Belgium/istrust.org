@@ -81,14 +81,14 @@
                 rounded-md
                 font-medium
                 group
-                hover:bg-opacity-95
+                hover:bg-opacity-90
               "
               :href="browser.link"
             >
               <img
                 :src="browser.icon"
                 alt=""
-                class="h-8 w-8 group-hover:opacity-95 pointer-events-none"
+                class="h-8 w-8 group-hover:opacity-90 pointer-events-none"
               />
               {{ $t('index.get_the_addon') }}
             </a>
@@ -112,38 +112,52 @@
           </div>
 
           <div v-if="browser" class="flex gap-2">
-            <div v-if="browser.rating" class="flex flex-row items-center">
+            <a
+              v-if="browser.rating"
+              :href="browser.reviews"
+              target="_blank"
+              class="flex flex-row items-center group"
+            >
               <img
                 v-for="star in browser.rating.average"
                 :key="star"
                 src="/svg/star.svg"
                 alt="star"
-                class="w-6 h-6 pointer-events-none"
+                class="w-6 h-6 pointer-events-none group-hover:opacity-90"
               />
               <p
                 class="
                   px-1
+                  flex
                   text-sm text-secondary-light
                   dark:text-dark-secondary-light
                 "
               >
-                ({{ browser.rating.count }})
+                <span class="font-light">(</span>
+                <span class="font-medium">{{ browser.rating.count }}</span>
+                <span class="font-light">)</span>
               </p>
-            </div>
-            <div v-else class="flex flex-row items-center">
+            </a>
+            <a
+              v-else
+              :href="browser.reviews"
+              target="_blank"
+              class="flex flex-row items-center group"
+            >
               <img
                 v-for="star in 5"
                 :key="star"
                 src="/svg/star.svg"
                 alt="star"
-                class="w-6 h-6 opacity-50 pointer-events-none"
+                class="
+                  w-6
+                  h-6
+                  opacity-60
+                  group-hover:opacity-50
+                  pointer-events-none
+                "
               />
-            </div>
-            <a
-              :href="browser.review"
-              class="text-secondary dark:text-dark-secondary"
-              >{{ $t('index.review') }}</a
-            >
+            </a>
           </div>
         </div>
       </div>
@@ -214,40 +228,41 @@ export default defineComponent({
         name: 'Chrome',
         icon: 'browser/chrome.svg',
         link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        review:
+        reviews:
           'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
       {
         name: 'Firefox',
         icon: 'browser/firefox.svg',
         link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
-        review: 'https://addons.mozilla.org/en-US/reviewers/review/2721902',
+        reviews: 'https://addons.mozilla.org/firefox/addon/istrust/reviews/',
       },
       {
         name: 'Edge',
         icon: 'browser/edge.svg',
         link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
-        review: '',
+        reviews:
+          'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
       },
       {
         name: 'Opera',
         icon: 'browser/opera.svg',
         link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        review:
+        reviews:
           'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
       {
         name: 'Brave',
         icon: 'browser/brave.svg',
         link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        review:
+        reviews:
           'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
       {
         name: 'Vivaldi',
         icon: 'browser/vivaldi.svg',
         link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        review:
+        reviews:
           'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
       },
     ]
@@ -256,7 +271,7 @@ export default defineComponent({
       | {
           icon: string
           link: string
-          review: string
+          reviews: string
           rating?: { average: number; count: number }
         }
       | undefined
@@ -289,7 +304,7 @@ export default defineComponent({
         browser.value = {
           icon: matchedBrowser.icon,
           link: matchedBrowser.link,
-          review: matchedBrowser.review,
+          reviews: matchedBrowser.reviews,
         }
 
         if (uaBrowser === 'Firefox') {

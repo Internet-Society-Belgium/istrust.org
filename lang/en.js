@@ -4,7 +4,6 @@ export default {
     days_ago: 'today | {days} day ago | {days} days ago',
     description: 'Verify the trustability of any website',
     get_the_addon: 'Get the add-on',
-    review: 'Leave a note',
     download: {
       title: 'Download',
       description: 'All available platforms',
