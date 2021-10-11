@@ -80,11 +80,15 @@ export default {
         },
         parsePages: false,
         pages: {
-          legal: {
-            fr: encodeURI('/légal'),
+          legal_mention: {
+            en: '/legal-mention',
+            fr: encodeURI('/mention-légal'),
+            nl: '/wettelijke-vermelding',
           },
-          privacy: {
-            fr: encodeURI('/vie-privée'),
+          privacy_policy: {
+            en: 'privacy-policy',
+            fr: encodeURI('/politique-de-confidentialité'),
+            nl: 'privacybeleid',
           },
         },
       },
