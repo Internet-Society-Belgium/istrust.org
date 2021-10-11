@@ -152,18 +152,45 @@
 
     <section id="download" class="px-20 gap-14 flex flex-col items-center">
       <div class="text-center">
-        <h3 class="text-secondary text-4xl font-semibold p-4">Downloads</h3>
-        <h4 class="text-secondary-light">All platforms available</h4>
+        <h3
+          class="
+            text-secondary
+            dark:text-dark-secondary
+            text-4xl
+            font-semibold
+            p-4
+          "
+        >
+          {{ $t('index.download.title') }}
+        </h3>
+        <h4 class="text-secondary-light dark:text-dark-secondary-light">
+          {{ $t('index.download.description') }}
+        </h4>
       </div>
       <div class="flex flex-wrap justify-center max-w-xl gap-10">
         <a
           v-for="(b, i) in browsers"
           :key="i"
           :href="b.link"
-          class="p-10 flex flex-col gap-4 bg-container rounded-md"
+          class="
+            p-10
+            flex flex-col
+            gap-4
+            bg-container
+            dark:bg-dark-container
+            rounded-md
+          "
         >
           <img :src="b.icon" alt="" class="h-20 w-20 pointer-events-none" />
-          <p class="text-secondary text-lg font-medium text-center">
+          <p
+            class="
+              text-secondary
+              dark:text-dark-secondary
+              text-lg
+              font-medium
+              text-center
+            "
+          >
             {{ b.name }}
           </p>
         </a>

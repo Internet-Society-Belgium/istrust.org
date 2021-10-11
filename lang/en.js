@@ -5,8 +5,12 @@ export default {
     description: 'Verify the trustability of any website',
     get_the_addon: 'Get the add-on',
     review: 'Leave a note',
+    download: {
+      title: 'Download',
+      description: 'All available platforms',
+    },
   },
   footer: { made_by: 'Made by' },
-  legal: 'Legal',
-  privacy: 'Privacy',
+  legal_mention: 'Legal mention',
+  privacy_policy: 'Privacy policy',
 }
