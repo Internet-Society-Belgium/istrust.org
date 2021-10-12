@@ -148,6 +148,7 @@
                 text-secondary
                 dark:text-dark-secondary
                 text-opacity-20
+                dark:text-opacity-20
               "
             >
               <svg viewBox="0 0 255 127.5">
@@ -177,6 +178,7 @@
                   border-4 border-secondary
                   dark:border-dark-secondary
                   border-opacity-20
+                  dark:border-opacity-20
                   pointer-events-none
                 "
                 :class="
