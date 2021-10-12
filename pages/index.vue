@@ -209,14 +209,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from '@vue/composition-api'
+import Vue from 'vue'
 import { getBrowser } from '~/utils/browser'
 import Screenshots from '~/components/Screenshots.vue'
-
-export default defineComponent({
-  components: { Screenshots },
-  setup() {
-    const latestVersion = ref<{ name: string; days: number }>()
 
     const browsers = [
       {
@@ -262,17 +257,42 @@ export default defineComponent({
       },
     ]
 
-    const browser = ref<
-      | {
+interface Version {
+  name: string
+  days: number
+}
+
+interface Browser {
           icon: string
           link: string
           reviews: string
           rating?: { average: number; count: number }
         }
-      | undefined
-    >()
 
-    onMounted(() => {
+export default Vue.extend({
+  components: { Screenshots },
+  data() {
+    return {
+      browsers,
+      latestVersion: {} as Version,
+      browser: {} as Browser,
+    }
+  },
+  head() {
+    return {
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$t('index.description')}`,
+        },
+      ],
+    }
+  },
+  mounted() {
       fetch(
         'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
       )
@@ -286,7 +306,7 @@ export default defineComponent({
             Math.abs((published - now) / (24 * 60 * 60 * 1000))
           )
 
-          latestVersion.value = {
+        this.latestVersion = {
             name: data.name,
             days,
           }
@@ -296,7 +316,7 @@ export default defineComponent({
       const matchedBrowser = browsers.find((b) => b.name === uaBrowser)
 
       if (matchedBrowser) {
-        browser.value = {
+      this.browser = {
           icon: matchedBrowser.icon,
           link: matchedBrowser.link,
           reviews: matchedBrowser.reviews,
@@ -307,26 +327,19 @@ export default defineComponent({
             .then((res) => res.json())
             .then((data) => {
               if (!data?.ratings?.average || !data?.ratings?.count) return
-              if (!browser.value) return
-              browser.value.rating = {
+            if (!this.browser) return
+            this.browser.rating = {
                 average: data.ratings.average,
                 count: data.ratings.count,
               }
             })
         }
       }
-    })
-
-    const scrollTo = (id: string) => {
+  },
+  methods: {
+    scrollTo: (id: string) => {
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }
-
-    return {
-      latestVersion,
-      browsers,
-      browser,
-      scrollTo,
-    }
+    },
   },
 })
 </script>
