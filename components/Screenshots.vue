@@ -71,7 +71,7 @@
               dark:disabled:text-opacity-20
               disabled:pointer-events-none
             "
-            :disabled="currentScreenshot >= maxScreenshots - 1"
+            :disabled="currentScreenshot >= screenshots.length - 1"
             @click="currentScreenshot += 1"
           >
             <svg
@@ -100,17 +100,10 @@
               dark:bg-secondary-dark-container
             "
           >
-            <div
-              v-if="
-                screenshot.url.protocol &&
-                screenshot.url.host &&
-                screenshot.url.pathname
-              "
-              class="flex truncate"
-            >
+            <div class="flex truncate">
               <span
                 class="text-secondary-light dark:text-dark-secondary-light"
-                >{{ screenshot.url.protocol }}</span
+                >{{ screenshots[currentScreenshot].url.protocol }}</span
               ><span
                 class="text-secondary-light dark:text-dark-secondary-light"
               >
@@ -119,14 +112,20 @@
               <span
                 class="text-secondary-light dark:text-dark-secondary-light"
                 >{{
-                  screenshot.url.host.split('.').slice(0, -2).join('.') + '.'
+                  screenshots[currentScreenshot].url.host
+                    .split('.')
+                    .slice(0, -2)
+                    .join('.') + '.'
                 }}</span
               ><span class="text-secondary dark:text-dark-secondary">{{
-                screenshot.url.host.split('.').slice(-2).join('.')
+                screenshots[currentScreenshot].url.host
+                  .split('.')
+                  .slice(-2)
+                  .join('.')
               }}</span>
               <span
                 class="text-secondary-light dark:text-dark-secondary-light"
-                >{{ screenshot.url.pathname }}</span
+                >{{ screenshots[currentScreenshot].url.pathname }}</span
               >
             </div>
           </div>
@@ -139,7 +138,7 @@
           </div>
         </div>
       </div>
-      <div v-if="screenshot.image !== ''" class="flex justify-end">
+      <div class="flex justify-end">
         <div>
           <div class="flex justify-end mr-3">
             <div
@@ -159,19 +158,37 @@
               </svg>
             </div>
           </div>
-          <nuxt-img
-            format="webp"
-            :src="`screenshot/${screenshot.image}`"
-            alt=""
-            class="
-              max-w-full
-              rounded-xl
-              border-4 border-secondary
-              dark:border-dark-secondary
-              border-opacity-20
-              pointer-events-none
-            "
-          />
+
+          <div
+            v-for="(screenshot, screenshotIndex) in screenshots"
+            :key="screenshotIndex"
+          >
+            <div
+              v-for="(file, theme) in screenshot.lang[$i18n.locale]"
+              :key="theme"
+            >
+              <nuxt-img
+                format="webp"
+                :src="file"
+                alt=""
+                class="
+                  max-w-full
+                  rounded-xl
+                  border-4 border-secondary
+                  dark:border-dark-secondary
+                  border-opacity-20
+                  pointer-events-none
+                "
+                :class="
+                  ((!dark && theme === 'light') ||
+                    (dark && theme === 'dark')) &&
+                  currentScreenshot === screenshotIndex
+                    ? ''
+                    : 'hidden'
+                "
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -182,7 +199,7 @@
 import Vue from 'vue'
 
 interface Screenshots {
-  url: string
+  url: URL
   lang: {
     [key: string]: {
       light: string
@@ -190,38 +207,39 @@ interface Screenshots {
     }
   }
 }
+
 const screenshots: Screenshots[] = [
   {
-    url: 'https://www.istrust.org/',
+    url: new URL('https://www.istrust.org/'),
     lang: {
       en: {
-        light: 'istrust_org.png',
-        dark: 'istrust_org.png',
+        light: '/screenshot/en/light/istrust_org.png',
+        dark: '/screenshot/en/dark/istrust_org.png',
       },
       fr: {
-        light: 'istrust_org.png',
-        dark: 'istrust_org.png',
+        light: '/screenshot/fr/light/istrust_org.png',
+        dark: '/screenshot/fr/dark/istrust_org.png',
       },
       nl: {
-        light: 'istrust_org.png',
-        dark: 'istrust_org.png',
+        light: '/screenshot/nl/light/istrust_org.png',
+        dark: '/screenshot/nl/dark/istrust_org.png',
       },
     },
   },
   {
-    url: 'https://www.internetsociety.be/',
+    url: new URL('https://www.internetsociety.be/'),
     lang: {
       en: {
-        light: 'internetsociety_be.png',
-        dark: 'internetsociety_be.png',
+        light: '/screenshot/en/light/internetsociety_be.png',
+        dark: '/screenshot/en/dark/internetsociety_be.png',
       },
       fr: {
-        light: 'internetsociety_be.png',
-        dark: 'internetsociety_be.png',
+        light: '/screenshot/fr/light/internetsociety_be.png',
+        dark: '/screenshot/fr/dark/internetsociety_be.png',
       },
       nl: {
-        light: 'internetsociety_be.png',
-        dark: 'internetsociety_be.png',
+        light: '/screenshot/nl/light/internetsociety_be.png',
+        dark: '/screenshot/nl/dark/internetsociety_be.png',
       },
     },
   },
@@ -230,28 +248,10 @@ const screenshots: Screenshots[] = [
 export default Vue.extend({
   data() {
     return {
+      screenshots,
       dark: false,
-      maxScreenshots: screenshots.length,
       currentScreenshot: 0,
-      screenshot: { url: {} as URL, image: '' },
     }
-  },
-  watch: {
-    currentScreenshot: {
-      immediate: true,
-      handler() {
-        this.screenshot = {
-          url: new URL(screenshots[this.currentScreenshot].url),
-          image: this.dark
-            ? screenshots[this.currentScreenshot].lang[
-                this.$i18n.locale || 'en'
-              ].dark
-            : screenshots[this.currentScreenshot].lang[
-                this.$i18n.locale || 'en'
-              ].light,
-        }
-      },
-    },
   },
   mounted() {
     this.dark = window.matchMedia('(prefers-color-scheme: dark)').matches
