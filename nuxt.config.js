@@ -7,23 +7,30 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head() {
-    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
-    return {
+    const head = {
       title: 'isTrust',
-      htmlAttrs: {
-        myAttribute: 'My Value',
-        ...i18nHead.htmlAttrs,
-      },
+      htmlAttrs: {},
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        ...i18nHead.meta,
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/icon/favicon.ico' },
-        ...i18nHead.link,
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
+
+    if (this.$nuxtI18nHead) {
+      const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+      if (i18nHead.htmlAttrs) {
+        head.htmlAttrs = { ...head.htmlAttrs, ...i18nHead.htmlAttrs }
+      }
+      if (Array.isArray(i18nHead.meta)) {
+        head.meta.concat(i18nHead.meta)
+      }
+      if (Array.isArray(i18nHead.link)) {
+        head.link.concat(i18nHead.link)
+      }
+    }
+
+    return head
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -79,16 +86,17 @@ export default {
           useCookie: false,
         },
         parsePages: false,
+        baseUrl: 'https://www.istrust.org',
         pages: {
-          legal_mention: {
+          legal: {
             en: '/legal-mention',
             fr: encodeURI('/mention-légal'),
             nl: '/wettelijke-vermelding',
           },
-          privacy_policy: {
-            en: 'privacy-policy',
+          privacy: {
+            en: '/privacy-policy',
             fr: encodeURI('/politique-de-confidentialité'),
-            nl: 'privacybeleid',
+            nl: '/privacybeleid',
           },
         },
       },
