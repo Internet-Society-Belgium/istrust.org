@@ -1,15 +1,7 @@
 <template>
   <div class="flex flex-col gap-20 pt-20 lg:pt-0 pb-20">
     <section
-      class="
-        min-h-screen
-        px-20
-        grid
-        gap-20
-        lg:gap-10
-        grid-cols-1
-        lg:grid-cols-2
-      "
+      class="min-h-screen p-20 grid gap-20 lg:gap-10 grid-cols-1 lg:grid-cols-2"
     >
       <div class="flex items-center justify-center">
         <div class="flex flex-col gap-4 items-center lg:items-start">
@@ -17,6 +9,7 @@
             v-if="latestVersion"
             href="https://github.com/Internet-Society-Belgium/isTrust/releases"
             target="_blank"
+            rel="noopener noreferrer"
             class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
           >
             <span
@@ -116,6 +109,7 @@
               v-if="browser.rating"
               :href="browser.reviews"
               target="_blank"
+              rel="noopener noreferrer"
               class="flex flex-row items-center group"
             >
               <img
@@ -142,6 +136,7 @@
               v-else
               :href="browser.reviews"
               target="_blank"
+              rel="noopener noreferrer"
               class="flex flex-row items-center group"
             >
               <img

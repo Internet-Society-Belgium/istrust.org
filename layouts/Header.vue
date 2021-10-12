@@ -2,8 +2,7 @@
   <header class="sticky top-0 z-50 bg-background dark:bg-dark-background">
     <div class="border-b-2 border-secondary-light border-opacity-20">
       <div class="flex justify-between py-4 px-8">
-        <a href="/">
-          <img src="/icon/icon.svg" alt="" class="w-12 h-12 pointer-events-none" />
+        <a href="/" title="isTrust">
         </a>
 
         <div class="flex items-center text-secondary dark:text-dark-secondary">

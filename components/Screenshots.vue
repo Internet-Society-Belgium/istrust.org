@@ -16,6 +16,7 @@
         >
           <button
             type="button"
+            aria-label="Previous screenshot"
             class="
               w-9
               h-9
@@ -51,6 +52,7 @@
           </button>
           <button
             type="button"
+            aria-label="Next screenshot"
             class="
               w-9
               h-9
@@ -155,7 +157,7 @@
           </div>
           <nuxt-img
             format="webp"
-            :src="screenshot.image"
+            alt=""
             class="
               max-w-full
               rounded-xl

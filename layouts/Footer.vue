@@ -11,7 +11,11 @@
     <p class="text-center text-secondary-light dark:text-dark-secondary-light">
       2021 © Internet Society Chapter Belgium.
       {{ $t('footer.made_by') }}
-      <a href="https://progiciel.be" target="_blank" class="underline"
+      <a
+        href="https://progiciel.be"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline"
         >Progiciel</a
       >
     </p>
