@@ -3,11 +3,15 @@
     <div class="border-b-2 border-secondary-light border-opacity-20">
       <div class="flex justify-between py-4 px-8">
         <a href="/" title="isTrust">
+          <img
+            src="~/assets/images/icon/icon.svg?data"
+            alt=""
+            class="w-12 h-12 pointer-events-none"
+          />
         </a>
 
         <div class="flex items-center text-secondary dark:text-dark-secondary">
           <button
-
             v-for="locale in locales"
             :key="locale.code"
             type="button"

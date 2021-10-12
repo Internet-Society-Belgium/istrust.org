@@ -131,7 +131,11 @@
             </div>
           </div>
           <div class="w-9 h-9 p-2 rounded">
-            <img src="/icon/icon.svg" alt="" class="pointer-events-none" />
+            <img
+              src="~/assets/images/icon/icon.svg?data"
+              alt=""
+              class="pointer-events-none"
+            />
           </div>
         </div>
       </div>
@@ -157,6 +161,7 @@
           </div>
           <nuxt-img
             format="webp"
+            :src="`screenshot/${screenshot.image}`"
             alt=""
             class="
               max-w-full
@@ -190,16 +195,16 @@ const screenshots: Screenshots[] = [
     url: 'https://www.istrust.org/',
     lang: {
       en: {
-        light: '/screenshot/istrust_org.png',
-        dark: '/screenshot/istrust_org.png',
+        light: 'istrust_org.png',
+        dark: 'istrust_org.png',
       },
       fr: {
-        light: '/screenshot/istrust_org.png',
-        dark: '/screenshot/istrust_org.png',
+        light: 'istrust_org.png',
+        dark: 'istrust_org.png',
       },
       nl: {
-        light: '/screenshot/istrust_org.png',
-        dark: '/screenshot/istrust_org.png',
+        light: 'istrust_org.png',
+        dark: 'istrust_org.png',
       },
     },
   },
@@ -207,16 +212,16 @@ const screenshots: Screenshots[] = [
     url: 'https://www.internetsociety.be/',
     lang: {
       en: {
-        light: '/screenshot/internetsociety_be.png',
-        dark: '/screenshot/internetsociety_be.png',
+        light: 'internetsociety_be.png',
+        dark: 'internetsociety_be.png',
       },
       fr: {
-        light: '/screenshot/internetsociety_be.png',
-        dark: '/screenshot/internetsociety_be.png',
+        light: 'internetsociety_be.png',
+        dark: 'internetsociety_be.png',
       },
       nl: {
-        light: '/screenshot/internetsociety_be.png',
-        dark: '/screenshot/internetsociety_be.png',
+        light: 'internetsociety_be.png',
+        dark: 'internetsociety_be.png',
       },
     },
   },

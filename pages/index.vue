@@ -61,7 +61,7 @@
           </h2>
           <div class="mt-9">
             <a
-              v-if="browser"
+              v-if="browser.link && browser.icon"
               class="
                 inline-flex
                 items-center
@@ -79,7 +79,7 @@
               :href="browser.link"
             >
               <img
-                :src="browser.icon"
+                :src="require(`~/assets/images/browser/${browser.icon}?data`)"
                 alt=""
                 class="h-8 w-8 group-hover:opacity-90 pointer-events-none"
               />
@@ -115,7 +115,7 @@
               <img
                 v-for="star in browser.rating.average"
                 :key="star"
-                src="/svg/star.svg"
+                src="~/assets/images/svg/star.svg?data"
                 alt="star"
                 class="w-6 h-6 pointer-events-none group-hover:opacity-90"
               />
@@ -142,7 +142,7 @@
               <img
                 v-for="star in 5"
                 :key="star"
-                src="/svg/star.svg"
+                src="~/assets/images/svg/star.svg?data"
                 alt="star"
                 class="
                   w-6
@@ -190,7 +190,11 @@
             rounded-md
           "
         >
-          <img :src="b.icon" alt="" class="h-20 w-20 pointer-events-none" />
+          <img
+            :src="require(`~/assets/images/browser/${b.icon}?data`)"
+            alt=""
+            class="h-20 w-20 pointer-events-none"
+          />
           <p
             class="
               text-secondary
@@ -213,49 +217,49 @@ import Vue from 'vue'
 import { getBrowser } from '~/utils/browser'
 import Screenshots from '~/components/Screenshots.vue'
 
-    const browsers = [
-      {
-        name: 'Chrome',
-        icon: 'browser/chrome.svg',
-        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        reviews:
-          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-      },
-      {
-        name: 'Firefox',
-        icon: 'browser/firefox.svg',
-        link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
-        reviews: 'https://addons.mozilla.org/firefox/addon/istrust/reviews/',
-      },
-      {
-        name: 'Edge',
-        icon: 'browser/edge.svg',
-        link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
-        reviews:
-          'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
-      },
-      {
-        name: 'Opera',
-        icon: 'browser/opera.svg',
-        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        reviews:
-          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-      },
-      {
-        name: 'Brave',
-        icon: 'browser/brave.svg',
-        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        reviews:
-          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-      },
-      {
-        name: 'Vivaldi',
-        icon: 'browser/vivaldi.svg',
-        link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-        reviews:
-          'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-      },
-    ]
+const browsers = [
+  {
+    name: 'Chrome',
+    icon: 'chrome.svg',
+    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+    reviews:
+      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+  },
+  {
+    name: 'Firefox',
+    icon: 'firefox.svg',
+    link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
+    reviews: 'https://addons.mozilla.org/firefox/addon/istrust/reviews/',
+  },
+  {
+    name: 'Edge',
+    icon: 'edge.svg',
+    link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
+    reviews:
+      'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
+  },
+  {
+    name: 'Opera',
+    icon: 'opera.svg',
+    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+    reviews:
+      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+  },
+  {
+    name: 'Brave',
+    icon: 'brave.svg',
+    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+    reviews:
+      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+  },
+  {
+    name: 'Vivaldi',
+    icon: 'vivaldi.svg',
+    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
+    reviews:
+      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
+  },
+]
 
 interface Version {
   name: string
@@ -263,11 +267,11 @@ interface Version {
 }
 
 interface Browser {
-          icon: string
-          link: string
-          reviews: string
-          rating?: { average: number; count: number }
-        }
+  icon: string
+  link: string
+  reviews: string
+  rating?: { average: number; count: number }
+}
 
 export default Vue.extend({
   components: { Screenshots },
@@ -293,48 +297,48 @@ export default Vue.extend({
     }
   },
   mounted() {
-      fetch(
-        'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.name || !data.published_at) return
+    fetch(
+      'https://api.github.com/repos/Internet-Society-Belgium/isTrust/releases/latest'
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.name || !data.published_at) return
 
-          const now = new Date().getTime()
-          const published = new Date(data.published_at).getTime()
-          const days = Math.round(
-            Math.abs((published - now) / (24 * 60 * 60 * 1000))
-          )
+        const now = new Date().getTime()
+        const published = new Date(data.published_at).getTime()
+        const days = Math.round(
+          Math.abs((published - now) / (24 * 60 * 60 * 1000))
+        )
 
         this.latestVersion = {
-            name: data.name,
-            days,
-          }
-        })
-
-      const uaBrowser = getBrowser(navigator.userAgent)
-      const matchedBrowser = browsers.find((b) => b.name === uaBrowser)
-
-      if (matchedBrowser) {
-      this.browser = {
-          icon: matchedBrowser.icon,
-          link: matchedBrowser.link,
-          reviews: matchedBrowser.reviews,
+          name: data.name,
+          days,
         }
+      })
 
-        if (uaBrowser === 'Firefox') {
-          fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
-            .then((res) => res.json())
-            .then((data) => {
-              if (!data?.ratings?.average || !data?.ratings?.count) return
+    const uaBrowser = getBrowser(navigator.userAgent)
+    const matchedBrowser = browsers.find((b) => b.name === uaBrowser)
+
+    if (matchedBrowser) {
+      this.browser = {
+        icon: matchedBrowser.icon,
+        link: matchedBrowser.link,
+        reviews: matchedBrowser.reviews,
+      }
+
+      if (uaBrowser === 'Firefox') {
+        fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
+          .then((res) => res.json())
+          .then((data) => {
+            if (!data?.ratings?.average || !data?.ratings?.count) return
             if (!this.browser) return
             this.browser.rating = {
-                average: data.ratings.average,
-                count: data.ratings.count,
-              }
-            })
-        }
+              average: data.ratings.average,
+              count: data.ratings.count,
+            }
+          })
       }
+    }
   },
   methods: {
     scrollTo: (id: string) => {

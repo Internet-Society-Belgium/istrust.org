@@ -49,6 +49,7 @@ export default {
       '@nuxt/image',
       {
         provider: 'static',
+        dir: 'assets/images',
       },
     ],
     '@nuxtjs/svg',
