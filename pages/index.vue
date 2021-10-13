@@ -6,7 +6,7 @@
       <div class="flex items-center justify-center">
         <div class="flex flex-col gap-4 items-center lg:items-start">
           <a
-            v-if="latestVersion"
+            v-if="latestVersion.name && latestVersion.days"
             href="https://github.com/Internet-Society-Belgium/isTrust/releases"
             target="_blank"
             rel="noopener noreferrer"
@@ -104,7 +104,7 @@
             </button>
           </div>
 
-          <div v-if="browser" class="flex gap-2">
+          <div v-if="browser.reviews" class="flex gap-2">
             <a
               v-if="browser.rating"
               :href="browser.reviews"
