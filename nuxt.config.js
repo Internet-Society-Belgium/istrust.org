@@ -60,7 +60,7 @@ export default {
     [
       '@nuxtjs/i18n',
       {
-        strategy: 'prefix',
+        strategy: 'prefix_except_default',
         defaultLocale: 'en',
         seo: true,
         locales: [

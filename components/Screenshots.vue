@@ -29,6 +29,7 @@
               hover:bg-opacity-10
               dark:hover:bg-opacity-10
               disabled:bg-opacity-0
+              dark:disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
               disabled:text-opacity-20
@@ -65,6 +66,7 @@
               hover:bg-opacity-10
               dark:hover:bg-opacity-10
               disabled:bg-opacity-0
+              dark:disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
               disabled:text-opacity-20
