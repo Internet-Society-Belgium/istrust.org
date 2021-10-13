@@ -1,6 +1,13 @@
 <template>
   <header class="sticky top-0 z-50 bg-background dark:bg-dark-background">
-    <div class="border-b-2 border-secondary-light border-opacity-20">
+    <div
+      class="
+        border-b-2 border-secondary-light
+        dark:border-dark-secondary-light
+        border-opacity-20
+        dark:border-opacity-20
+      "
+    >
       <div class="flex justify-between py-4 px-8">
         <nuxt-link :to="localePath('/')">
           <img
@@ -20,7 +27,7 @@
             :class="
               locale.code === $i18n.locale
                 ? 'bg-primary bg-opacity-20 text-primary'
-                : 'text-secondary dark:text-dark-secondary hover:text-primary'
+                : 'text-secondary dark:text-dark-secondary hover:text-primary dark:hover:text-primary'
             "
             @click="$i18n.setLocale(locale.code)"
           >

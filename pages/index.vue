@@ -24,7 +24,7 @@
               "
               >{{ $t('index.new_release') }}
             </span>
-            <span class="text-sm font-medium text-primary dark:text-primary"
+            <span class="text-sm font-medium text-primary"
               >v{{ latestVersion.name }} -
               {{
                 $tc(

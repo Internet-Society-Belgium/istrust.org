@@ -35,6 +35,7 @@
               disabled:text-opacity-20
               dark:disabled:text-opacity-20
               disabled:pointer-events-none
+              dark:disabled:pointer-events-none
             "
             :disabled="currentScreenshot < 1"
             @click="currentScreenshot -= 1"
@@ -72,6 +73,7 @@
               disabled:text-opacity-20
               dark:disabled:text-opacity-20
               disabled:pointer-events-none
+              dark:disabled:pointer-events-none
             "
             :disabled="currentScreenshot >= screenshots.length - 1"
             @click="currentScreenshot += 1"
