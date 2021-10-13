@@ -1,10 +1,8 @@
 <template>
   <footer class="pt-8 pb-4 flex flex-col items-center gap-4">
     <div class="flex gap-4 text-secondary dark:text-dark-secondary">
-      <nuxt-link :to="localePath('legal_mention')">{{
-        $t('legal_mention')
-      }}</nuxt-link>
-      <nuxt-link :to="localePath('privacy_policy')">{{
+      <nuxt-link :to="localePath('legal')">{{ $t('legal_mention') }}</nuxt-link>
+      <nuxt-link :to="localePath('privacy')">{{
         $t('privacy_policy')
       }}</nuxt-link>
     </div>
