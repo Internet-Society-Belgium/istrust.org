@@ -5,38 +5,50 @@
     >
       <div class="flex items-center justify-center">
         <div class="flex flex-col gap-4 items-center lg:items-start">
-          <a
-            v-if="latestVersion.name && latestVersion.days"
-            href="https://github.com/Internet-Society-Belgium/isTrust/releases"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
-          >
-            <span
-              class="
-                uppercase
-                bg-primary bg-opacity-20
-                text-primary text-xs
-                font-semibold
-                px-2
-                py-1
-                rounded-md
-              "
-              >{{ $t('index.new_release') }}
-            </span>
-            <span class="text-sm font-medium text-primary"
-              >v{{ latestVersion.name }} -
-              {{
-                $tc(
-                  'index.days_ago',
-                  latestVersion.days == 0 ? 0 : latestVersion.days == 1 ? 1 : 2,
-                  {
-                    days: latestVersion.days,
-                  }
-                )
-              }}
-            </span>
-          </a>
+          <div class="h-10 flex items-center">
+            <transition
+              enter-active-class="duration-500 ease-in-out"
+              enter-class="opacity-0"
+              enter-to-class="opacity-100"
+            >
+              <a
+                v-if="latestVersion.name && latestVersion.days"
+                href="https://github.com/Internet-Society-Belgium/isTrust/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
+              >
+                <span
+                  class="
+                    uppercase
+                    bg-primary bg-opacity-20
+                    text-primary text-xs
+                    font-semibold
+                    px-2
+                    py-1
+                    rounded-md
+                  "
+                  >{{ $t('index.new_release') }}
+                </span>
+                <span class="text-sm font-medium text-primary"
+                  >v{{ latestVersion.name }} -
+                  {{
+                    $tc(
+                      'index.days_ago',
+                      latestVersion.days == 0
+                        ? 0
+                        : latestVersion.days == 1
+                        ? 1
+                        : 2,
+                      {
+                        days: latestVersion.days,
+                      }
+                    )
+                  }}
+                </span>
+              </a>
+            </transition>
+          </div>
           <h1
             class="
               text-secondary
@@ -60,8 +72,8 @@
             {{ $t('index.description') }}
           </h2>
           <div class="mt-9">
-            <a
-              v-if="browser.link && browser.icon"
+            <button
+              type="button"
               class="
                 inline-flex
                 items-center
@@ -76,83 +88,84 @@
                 group
                 hover:bg-opacity-90
               "
-              :href="browser.link"
-            >
-              <img
-                :src="require(`~/assets/images/browser/${browser.icon}?data`)"
-                alt=""
-                class="h-8 w-8 group-hover:opacity-90 pointer-events-none"
-              />
-              {{ $t('index.get_the_addon') }}
-            </a>
-            <button
-              v-else
-              type="button"
-              class="
-                gap-3
-                py-4
-                px-6
-                bg-primary
-                text-dark-secondary
-                shadow
-                rounded-md
-                font-medium
+              @click="
+                browser.link && browser.icon
+                  ? goTo(browser.link)
+                  : scrollTo('download')
               "
-              @click="scrollTo('download')"
             >
+              <transition
+                enter-active-class="duration-500 ease-in-out"
+                enter-class="opacity-0"
+                enter-to-class="opacity-100"
+              >
+                <img
+                  v-if="browser.link && browser.icon"
+                  :src="require(`~/assets/images/browser/${browser.icon}?data`)"
+                  alt=""
+                  class="h-8 w-8 group-hover:opacity-90 pointer-events-none"
+                />
+              </transition>
               {{ $t('index.get_the_addon') }}
             </button>
           </div>
 
-          <div v-if="browser.reviews" class="flex gap-2">
-            <a
-              v-if="browser.rating"
-              :href="browser.reviews"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex flex-row items-center group"
+          <div class="h-10 flex items-center">
+            <transition
+              enter-active-class="duration-500 ease-in-out"
+              enter-class="opacity-0"
+              enter-to-class="opacity-100"
             >
-              <img
-                v-for="star in browser.rating.average"
-                :key="star"
-                src="~/assets/images/svg/star.svg?data"
-                alt="star"
-                class="w-6 h-6 pointer-events-none group-hover:opacity-90"
-              />
-              <p
-                class="
-                  px-1
-                  flex
-                  text-sm text-secondary-light
-                  dark:text-dark-secondary-light
-                "
-              >
-                <span class="font-light">(</span>
-                <span class="font-medium">{{ browser.rating.count }}</span>
-                <span class="font-light">)</span>
-              </p>
-            </a>
-            <a
-              v-else
-              :href="browser.reviews"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex flex-row items-center group"
-            >
-              <img
-                v-for="star in 5"
-                :key="star"
-                src="~/assets/images/svg/star.svg?data"
-                alt="star"
-                class="
-                  w-6
-                  h-6
-                  opacity-60
-                  group-hover:opacity-50
-                  pointer-events-none
-                "
-              />
-            </a>
+              <div v-if="browser.reviews" class="flex gap-2">
+                <a
+                  :href="browser.reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div
+                    v-if="browser.rating"
+                    class="flex flex-row items-center group"
+                  >
+                    <img
+                      v-for="star in browser.rating.average"
+                      :key="star"
+                      src="~/assets/images/svg/star.svg?data"
+                      alt="star"
+                      class="w-6 h-6 pointer-events-none group-hover:opacity-90"
+                    />
+                    <p
+                      class="
+                        px-1
+                        flex
+                        text-sm text-secondary-light
+                        dark:text-dark-secondary-light
+                      "
+                    >
+                      <span class="font-light">(</span>
+                      <span class="font-medium">{{
+                        browser.rating.count
+                      }}</span>
+                      <span class="font-light">)</span>
+                    </p>
+                  </div>
+                  <div v-else class="flex flex-row items-center group">
+                    <img
+                      v-for="star in 5"
+                      :key="star"
+                      src="~/assets/images/svg/star.svg?data"
+                      alt="star"
+                      class="
+                        w-6
+                        h-6
+                        opacity-60
+                        group-hover:opacity-50
+                        pointer-events-none
+                      "
+                    />
+                  </div>
+                </a>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -343,6 +356,9 @@ export default Vue.extend({
   methods: {
     scrollTo: (id: string) => {
       document?.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    },
+    goTo: (url: string) => {
+      window.location.href = url
     },
   },
 })
