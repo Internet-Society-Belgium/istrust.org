@@ -200,7 +200,7 @@
             gap-4
             bg-container
             dark:bg-dark-container
-            rounded-md
+            rounded-xl
           "
         >
           <img
@@ -219,6 +219,47 @@
           >
             {{ b.name }}
           </p>
+        </a>
+      </div>
+    </section>
+
+    <section class="p-20 gap-14 flex flex-col lg:flex-row lg:justify-around">
+      <div class="flex flex-col gap-4 items-center lg:items-baseline">
+        <h3
+          class="text-secondary dark:text-dark-secondary text-4xl font-semibold"
+        >
+          {{ $t('index.github.title') }}
+        </h3>
+        <h4 class="text-secondary-light dark:text-dark-secondary-light">
+          {{ $t('index.github.description') }}
+        </h4>
+      </div>
+      <div class="flex justify-center items-center">
+        <a
+          href="https://github.com/Internet-Society-Belgium/isTrust"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="
+            inline-flex
+            items-center
+            gap-3
+            py-4
+            px-6
+            bg-primary
+            text-dark-secondary
+            shadow
+            rounded-md
+            font-medium
+            group
+            hover:bg-opacity-90
+          "
+        >
+          <img
+            :src="require(`~/assets/images/svg/github.svg?data`)"
+            alt="dark"
+            class="h-8 w-8 pointer-events-none"
+          />
+          <p>{{ $t('index.github.view') }}</p>
         </a>
       </div>
     </section>

@@ -8,6 +8,11 @@ export default {
       title: 'Download',
       description: 'Alle beschikbare platforms',
     },
+    github: {
+      title: 'Wij respecteren uw privacy',
+      description: 'Dat is waarom dit project volledig open source is',
+      view: 'Broncode bekijken',
+    },
   },
   footer: { made_by: 'Gemaakt door' },
 

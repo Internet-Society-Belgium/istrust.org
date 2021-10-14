@@ -8,6 +8,11 @@ export default {
       title: 'Téléchargement',
       description: 'Toutes les plateformes disponibles',
     },
+    github: {
+      title: 'Nous respectons votre vie privée',
+      description: "C'est pourquoi ce projet est entièrement open source",
+      view: 'Voir le code source',
+    },
   },
   footer: { made_by: 'Fait par' },
 
