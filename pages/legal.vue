@@ -9,19 +9,21 @@
         dark:text-dark-secondary
       "
     >
-      <h1 class="text-4xl text-center font-semibold">Legal Mention</h1>
-      <h2 class="text-2xl text-center font-semibold">Who are we ?</h2>
+      <h1 class="text-4xl text-center font-semibold">
+        {{ $t('legal.title') }}
+      </h1>
+      <h2 class="text-2xl text-center font-semibold">
+        {{ $t('legal.who.title') }}
+      </h2>
       <p>
-        This website
         <a href="https://www.istrust.org" class="underline text-primary"
           >www.istrust.org</a
         >
-        is operated by Internet Society Chapter Belgium vzw/asbl, in short
-        “ISOC.be” vzw/asbl (non-profit organization).
+        {{ $t('legal.who.organisation') }}
       </p>
 
       <div class="flex flex-col gap-2">
-        <p>Our postal address is:</p>
+        <p>{{ $t('legal.who.postal') }}</p>
         <ol>
           <li>Internet Society Belgium</li>
           <li>Notelaarstraat 285 | Rue du Noyer 285</li>
@@ -32,7 +34,7 @@
       <p>RPR/RPM Brussels: BE 0728.764.958</p>
 
       <p>
-        Our website address is:
+        {{ $t('legal.who.website') }}
         <a href="https://www.internetsociety.be" class="underline text-primary"
           >www.internetsociety.be</a
         >.
@@ -50,6 +52,13 @@ export default Vue.extend({
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.$t('legal.description')}`,
+        },
+      ],
     }
   },
 })
