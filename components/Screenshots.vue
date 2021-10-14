@@ -186,8 +186,7 @@
                   pointer-events-none
                 "
                 :class="
-                  ((!dark && theme === 'light') ||
-                    (dark && theme === 'dark')) &&
+                  $colorMode.value === theme &&
                   currentScreenshot === screenshotIndex
                     ? ''
                     : 'hidden'
@@ -202,7 +201,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref } from '@vue/composition-api'
 
 interface Screenshots {
   url: URL
@@ -251,21 +250,10 @@ const screenshots: Screenshots[] = [
   },
 ]
 
-export default Vue.extend({
-  data() {
-    return {
-      screenshots,
-      dark: false,
-      currentScreenshot: 0,
-    }
-  },
-  mounted() {
-    this.dark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (e) => {
-        this.dark = e.matches
-      })
+export default defineComponent({
+  setup() {
+    const currentScreenshot = ref(0)
+    return { screenshots, currentScreenshot }
   },
 })
 </script>
