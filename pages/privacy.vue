@@ -37,6 +37,7 @@ import Vue from 'vue'
 export default Vue.extend({
   head() {
     return {
+      title: `isTrust - ${this.$t('legal.title')}`,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },

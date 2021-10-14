@@ -29,6 +29,9 @@ export default {
 
     if (this.$nuxtI18nHead) {
       const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+      if (i18nHead.title) {
+        head.title = i18nHead.title
+      }
       if (i18nHead.htmlAttrs) {
         head.htmlAttrs = { ...head.htmlAttrs, ...i18nHead.htmlAttrs }
       }
