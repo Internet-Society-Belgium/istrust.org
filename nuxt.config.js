@@ -86,6 +86,7 @@ export default {
         detectBrowserLanguage: {
           alwaysRedirect: true,
           useCookie: false,
+          redirectOn: 'root',
         },
         parsePages: false,
         baseUrl: 'https://www.istrust.org',
