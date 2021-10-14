@@ -224,7 +224,9 @@
     </section>
 
     <section class="p-20 gap-14 flex flex-col lg:flex-row lg:justify-around">
-      <div class="flex flex-col gap-4 items-center lg:items-baseline">
+      <div
+        class="flex flex-col gap-4 items-center text-center lg:items-baseline"
+      >
         <h3
           class="text-secondary dark:text-dark-secondary text-4xl font-semibold"
         >
