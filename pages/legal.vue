@@ -58,6 +58,11 @@ export default Vue.extend({
           name: 'description',
           content: `${this.$t('legal.description')}`,
         },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `${this.$t('legal.description')}`,
+        },
       ],
     }
   },

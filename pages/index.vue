@@ -306,6 +306,11 @@ export default Vue.extend({
           name: 'description',
           content: `${this.$t('index.description')}`,
         },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `${this.$t('index.description')}`,
+        },
       ],
     }
   },
