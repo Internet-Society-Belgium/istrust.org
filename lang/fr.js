@@ -8,9 +8,15 @@ export default {
       title: 'Téléchargement',
       description: 'Toutes les plateformes disponibles',
     },
-    github: {
-      title: 'Nous respectons votre vie privée',
-      description: "C'est pourquoi ce projet est entièrement open source",
+    opensource: {
+      title: [
+        { text: 'Nous respectons votre' },
+        { text: 'vie privée', highlight: true },
+      ],
+      description: [
+        { text: "C'est pourquoi ce projet est entièrement" },
+        { text: 'open source', highlight: true },
+      ],
       view: 'Voir le code source',
     },
   },
@@ -32,8 +38,17 @@ export default {
     description: "AUCUNE donnée personnelle n'est traitée ni stockée",
     which: {
       title: 'Quelles données personnelles traitons-nous et dans quel but ?',
-      privacy:
-        "Comme nous voulons protéger votre vie privée, AUCUNE donnée personnelle n'est traitée ni stockée sur ce site web. Aucun cookie n'est utilisé.",
+      privacy: [
+        { text: 'Comme nous voulons protéger votre vie privée,' },
+        { text: 'AUCUNE', highlight: true },
+        {
+          text: "donnée personnelle n'est traitée ni stockée sur ce site web.",
+        },
+        { text: 'AUCUN', highlight: true },
+        {
+          text: "cookie n'est utilisé.",
+        },
+      ],
       contact:
         'En cas de question relative au respect de la vie privée ou à la protection des données, veuillez vous adresser à',
     },

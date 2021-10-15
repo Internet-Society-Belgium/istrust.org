@@ -18,7 +18,13 @@
       </h2>
 
       <p>
-        {{ $t('privacy.which.privacy') }}
+        <span
+          v-for="(s, i) in $t('privacy.which.privacy')"
+          :key="i"
+          :class="s.highlight ? 'font-semibold' : ''"
+        >
+          {{ s.text }}
+        </span>
       </p>
 
       <p>

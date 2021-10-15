@@ -8,9 +8,16 @@ export default {
       title: 'Download',
       description: 'Alle beschikbare platforms',
     },
-    github: {
-      title: 'Wij respecteren uw privacy',
-      description: 'Dat is waarom dit project volledig open source is',
+    opensource: {
+      title: [
+        { text: 'Wij respecteren uw' },
+        { text: 'privacy', highlight: true },
+      ],
+      description: [
+        { text: 'Dat is waarom dit project volledig' },
+        { text: 'open source', highlight: true },
+        { text: 'is' },
+      ],
       view: 'Broncode bekijken',
     },
   },
@@ -32,8 +39,22 @@ export default {
     description: 'GEEN persoonsgegevens worden verwerkt of opgeslagen',
     which: {
       title: 'Welke persoonsgegevens verwerken wij en met welk doel',
-      privacy:
-        'Omdat wij uw privacy willen beschermen, worden op deze website GEEN persoonlijke gegevens verwerkt of opgeslagen. Er wordt geen cookie gebruikt.',
+      privacy: [
+        {
+          text: 'Omdat wij uw privacy willen beschermen, worden op deze website',
+        },
+        { text: 'GEEN', highlight: true },
+        {
+          text: 'persoonlijke gegevens verwerkt of opgeslagen.',
+        },
+        {
+          text: 'Er wordt',
+        },
+        { text: 'GEEN', highlight: true },
+        {
+          text: 'cookie gebruikt.',
+        },
+      ],
       contact:
         'In geval van vragen in verband met privacy of gegevensbescherming, gelieve contact op te nemen met',
     },

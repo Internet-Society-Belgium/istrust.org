@@ -230,10 +230,22 @@
         <h3
           class="text-secondary dark:text-dark-secondary text-4xl font-semibold"
         >
-          {{ $t('index.github.title') }}
+          <span
+            v-for="(s, i) in $t('index.opensource.title')"
+            :key="i"
+            :class="s.highlight ? 'text-primary' : ''"
+          >
+            {{ s.text }}
+          </span>
         </h3>
         <h4 class="text-secondary-light dark:text-dark-secondary-light">
-          {{ $t('index.github.description') }}
+          <span
+            v-for="(s, i) in $t('index.opensource.description')"
+            :key="i"
+            :class="s.highlight ? 'font-semibold' : ''"
+          >
+            {{ s.text }}
+          </span>
         </h4>
       </div>
       <div class="flex justify-center items-center">
@@ -261,7 +273,7 @@
             alt="dark"
             class="h-8 w-8 pointer-events-none"
           />
-          <p>{{ $t('index.github.view') }}</p>
+          <p>{{ $t('index.opensource.view') }}</p>
         </a>
       </div>
     </section>

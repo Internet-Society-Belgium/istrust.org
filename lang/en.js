@@ -8,9 +8,15 @@ export default {
       title: 'Download',
       description: 'All available platforms',
     },
-    github: {
-      title: 'We respect your privacy',
-      description: "That's why this project is fully open source",
+    opensource: {
+      title: [
+        { text: 'We respect your' },
+        { text: 'privacy', highlight: true },
+      ],
+      description: [
+        { text: "That's why this project is fully" },
+        { text: 'open source', highlight: true },
+      ],
       view: 'View source code',
     },
   },
@@ -31,8 +37,17 @@ export default {
     description: 'NO personal data is processed nor stored',
     which: {
       title: 'Which personal data do we process and for which purpose',
-      privacy:
-        'As we want to protect your privacy, NO personal data is processed nor stored on this website. No cookie is used.',
+      privacy: [
+        { text: 'As we want to protect your privacy,' },
+        { text: 'NO', highlight: true },
+        {
+          text: 'personal data is processed nor stored on this website.',
+        },
+        { text: 'NO', highlight: true },
+        {
+          text: 'cookie is used.',
+        },
+      ],
       contact:
         'In case of question related to privacy or data protection, please contact',
     },
