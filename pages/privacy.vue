@@ -31,7 +31,7 @@
         {{ $t('privacy.which.contact') }}
         <a href="mailto:dpo@isoc.be" class="underline text-primary"
           >dpo@isoc.be</a
-        >.
+        >
       </p>
     </div>
   </div>

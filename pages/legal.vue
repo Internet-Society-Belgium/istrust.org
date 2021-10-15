@@ -37,7 +37,7 @@
         {{ $t('legal.who.website') }}
         <a href="https://www.internetsociety.be" class="underline text-primary"
           >www.internetsociety.be</a
-        >.
+        >
       </p>
     </div>
   </div>
