@@ -16,7 +16,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://www.istrust.org/og.png',
+          content: 'https://www.istrust.org/og/image.png',
         },
         {
           hid: 'og:type',
