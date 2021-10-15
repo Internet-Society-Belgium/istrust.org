@@ -24,7 +24,7 @@
         dark:text-dark-secondary-light
       "
     >
-      <span> 2021 © Internet Society Chapter Belgium</span>
+      <span>2021 © Internet Society Chapter Belgium</span>
       <span>
         {{ $t('footer.made_by') }}
         <a
