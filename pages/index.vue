@@ -106,7 +106,7 @@
                   class="h-8 w-8 group-hover:opacity-90 pointer-events-none"
                 />
               </transition>
-              {{ $t('index.get_the_addon') }}
+              <p>{{ $t('index.get_the_addon') }}</p>
             </button>
           </div>
 
@@ -255,6 +255,7 @@
           rel="noopener noreferrer"
           class="
             inline-flex
+            flex-none
             items-center
             gap-3
             py-4
