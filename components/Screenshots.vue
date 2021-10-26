@@ -38,7 +38,7 @@
               dark:disabled:pointer-events-none
             "
             :disabled="currentScreenshot < 1"
-            @click="currentScreenshot -= 1"
+            @click="previous"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
               dark:disabled:pointer-events-none
             "
             :disabled="currentScreenshot >= screenshots.length - 1"
-            @click="currentScreenshot += 1"
+            @click="next"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref, onMounted } from '@vue/composition-api'
 
 interface Screenshots {
   url: URL
@@ -279,7 +279,28 @@ const screenshots: Screenshots[] = [
 export default defineComponent({
   setup() {
     const currentScreenshot = ref(0)
-    return { screenshots, currentScreenshot }
+    let overrideWaiting = 0
+    const previous = () => {
+      overrideWaiting = 3
+      currentScreenshot.value -= 1
+    }
+    const next = () => {
+      overrideWaiting = 3
+      currentScreenshot.value += 1
+    }
+    onMounted(() => {
+      setInterval(() => {
+        if (overrideWaiting === 0) {
+          currentScreenshot.value =
+            currentScreenshot.value === screenshots.length - 1
+              ? 0
+              : currentScreenshot.value + 1
+        } else {
+          overrideWaiting -= 1
+        }
+      }, 5000)
+    })
+    return { screenshots, currentScreenshot, previous, next }
   },
 })
 </script>
