@@ -307,27 +307,6 @@ const browsers = [
     reviews:
       'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
   },
-  {
-    name: 'Opera',
-    icon: 'opera.svg',
-    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-    reviews:
-      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-  },
-  {
-    name: 'Brave',
-    icon: 'brave.svg',
-    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-    reviews:
-      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-  },
-  {
-    name: 'Vivaldi',
-    icon: 'vivaldi.svg',
-    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-    reviews:
-      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-  },
 ]
 
 interface Version {
