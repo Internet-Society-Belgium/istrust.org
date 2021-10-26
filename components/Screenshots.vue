@@ -135,9 +135,32 @@
           </div>
           <div class="w-9 h-9 p-2 rounded">
             <img
-              src="~/assets/images/icon/icon.svg?data"
+              src="~/assets/images/icon/icon-ok.svg?data"
               alt=""
               class="pointer-events-none"
+              :class="
+                screenshots[currentScreenshot].score === 'ok' ? '' : 'hidden'
+              "
+            />
+            <img
+              src="~/assets/images/icon/icon-neutral.svg?data"
+              alt=""
+              class="pointer-events-none"
+              :class="
+                screenshots[currentScreenshot].score === 'neutral'
+                  ? ''
+                  : 'hidden'
+              "
+            />
+            <img
+              src="~/assets/images/icon/icon-warning.svg?data"
+              alt=""
+              class="pointer-events-none"
+              :class="
+                screenshots[currentScreenshot].score === 'warning'
+                  ? ''
+                  : 'hidden'
+              "
             />
           </div>
         </div>
@@ -205,6 +228,7 @@ import { defineComponent, ref } from '@vue/composition-api'
 
 interface Screenshots {
   url: URL
+  score: 'ok' | 'neutral' | 'warning'
   lang: {
     [key: string]: {
       light: string
@@ -216,6 +240,7 @@ interface Screenshots {
 const screenshots: Screenshots[] = [
   {
     url: new URL('https://www.istrust.org/'),
+    score: 'warning',
     lang: {
       en: {
         light: '/screenshot/en/light/istrust_org.png',
@@ -233,6 +258,7 @@ const screenshots: Screenshots[] = [
   },
   {
     url: new URL('https://www.internetsociety.be/'),
+    score: 'ok',
     lang: {
       en: {
         light: '/screenshot/en/light/internetsociety_be.png',
