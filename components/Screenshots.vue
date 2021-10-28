@@ -243,16 +243,16 @@ const screenshots: Screenshots[] = [
     score: 'warning',
     lang: {
       en: {
-        light: '/screenshot/en/light/istrust_org.png',
-        dark: '/screenshot/en/dark/istrust_org.png',
+        light: '/screenshot/istrust_org-en-light.png',
+        dark: '/screenshot/istrust_org-en-dark.png',
       },
       fr: {
-        light: '/screenshot/fr/light/istrust_org.png',
-        dark: '/screenshot/fr/dark/istrust_org.png',
+        light: '/screenshot/istrust_org-fr-light.png',
+        dark: '/screenshot/istrust_org-fr-dark.png',
       },
       nl: {
-        light: '/screenshot/nl/light/istrust_org.png',
-        dark: '/screenshot/nl/dark/istrust_org.png',
+        light: '/screenshot/istrust_org-nl-light.png',
+        dark: '/screenshot/istrust_org-nl-dark.png',
       },
     },
   },
@@ -261,16 +261,34 @@ const screenshots: Screenshots[] = [
     score: 'ok',
     lang: {
       en: {
-        light: '/screenshot/en/light/internetsociety_be.png',
-        dark: '/screenshot/en/dark/internetsociety_be.png',
+        light: '/screenshot/internetsociety_be-en-light.png',
+        dark: '/screenshot/internetsociety_be-en-dark.png',
       },
       fr: {
-        light: '/screenshot/fr/light/internetsociety_be.png',
-        dark: '/screenshot/fr/dark/internetsociety_be.png',
+        light: '/screenshot/internetsociety_be-fr-light.png',
+        dark: '/screenshot/internetsociety_be-fr-dark.png',
       },
       nl: {
-        light: '/screenshot/nl/light/internetsociety_be.png',
-        dark: '/screenshot/nl/dark/internetsociety_be.png',
+        light: '/screenshot/internetsociety_be-nl-light.png',
+        dark: '/screenshot/internetsociety_be-nl-dark.png',
+      },
+    },
+  },
+  {
+    url: new URL('https://www.internetsociety.org/'),
+    score: 'ok',
+    lang: {
+      en: {
+        light: '/screenshot/internetsociety_org-en-light.png',
+        dark: '/screenshot/internetsociety_org-en-dark.png',
+      },
+      fr: {
+        light: '/screenshot/internetsociety_org-fr-light.png',
+        dark: '/screenshot/internetsociety_org-fr-dark.png',
+      },
+      nl: {
+        light: '/screenshot/internetsociety_org-nl-light.png',
+        dark: '/screenshot/internetsociety_org-nl-dark.png',
       },
     },
   },
