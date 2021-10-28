@@ -172,6 +172,149 @@
       <Screenshots />
     </section>
 
+    <section class="flex flex-col items-center gap-10 p-20 pt-0">
+      <div>
+        <h3
+          class="
+            text-secondary
+            dark:text-dark-secondary
+            text-4xl text-center
+            font-semibold
+            p-2
+          "
+        >
+          {{ $t('index.feature.title') }}
+        </h3>
+        <h4
+          class="
+            text-secondary-light
+            dark:text-dark-secondary
+            text-2xl text-center
+            p-2
+          "
+        >
+          {{ $t('index.feature.subtitle') }}
+        </h4>
+      </div>
+      <div class="grid grid-flow-row md:grid-flow-col gap-10">
+        <div class="flex flex-col items-center">
+          <div class="p-3 relative -bottom-6 bg-primary rounded">
+            <img
+              src="~/assets/images/svg/globe-alt.svg?data"
+              alt="domain"
+              class="w-6 h-6 pointer-events-none"
+            />
+          </div>
+          <div
+            class="
+              h-full
+              w-60
+              p-4
+              pt-8
+              flex flex-col
+              justify-evenly
+              items-center
+              bg-container
+              dark:bg-dark-container
+              rounded-lg
+            "
+          >
+            <h3
+              class="
+                p-2
+                text-secondary
+                dark:text-dark-secondary
+                text-xl
+                font-medium
+              "
+            >
+              {{ $t('index.feature.domain.title') }}
+            </h3>
+            <ul class="text-secondary-light dark:text-dark-secondary-light">
+              <li class="p-1 flex items-center gap-2">
+                <img
+                  src="~/assets/images/svg/cake.svg?data"
+                  alt="domain"
+                  class="w-6 h-6 pointer-events-none"
+                />
+                <h4>{{ $t('index.feature.domain.creation') }}</h4>
+              </li>
+              <li class="p-1 flex items-center gap-2">
+                <img
+                  src="~/assets/images/svg/refresh.svg?data"
+                  alt="domain"
+                  class="w-6 h-6 pointer-events-none"
+                />
+                <h4>{{ $t('index.feature.domain.change') }}</h4>
+              </li>
+              <li class="p-1 flex items-center gap-2">
+                <img
+                  src="~/assets/images/svg/office-building.svg?data"
+                  alt="domain"
+                  class="w-6 h-6 pointer-events-none"
+                />
+                <h4>{{ $t('index.feature.domain.owner') }}</h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="p-3 relative -bottom-6 bg-primary rounded">
+            <img
+              src="~/assets/images/svg/switch-vertical.svg?data"
+              alt="domain"
+              class="w-6 h-6 pointer-events-none"
+            />
+          </div>
+          <div
+            class="
+              h-full
+              w-60
+              p-4
+              pt-8
+              flex flex-col
+              justify-evenly
+              items-center
+              bg-container
+              dark:bg-dark-container
+              rounded-lg
+            "
+          >
+            <h3
+              class="
+                p-2
+                text-secondary
+                dark:text-dark-secondary
+                text-xl
+                font-medium
+              "
+            >
+              {{ $t('index.feature.communication.title') }}
+            </h3>
+            <ul class="text-secondary-light dark:text-dark-secondary-light">
+              <li class="p-1 flex items-center gap-2">
+                <img
+                  src="~/assets/images/svg/lock-closed.svg?data"
+                  alt="domain"
+                  class="w-6 h-6 pointer-events-none"
+                />
+                <h4>{{ $t('index.feature.communication.secure') }}</h4>
+              </li>
+              <li class="p-1 flex items-center gap-2">
+                <img
+                  src="~/assets/images/svg/identification.svg?data"
+                  alt="domain"
+                  class="w-6 h-6 pointer-events-none"
+                />
+                <h4>{{ $t('index.feature.communication.subject') }}</h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="download" class="px-20 gap-14 flex flex-col items-center">
       <div class="text-center">
         <h3
@@ -206,7 +349,7 @@
           <img
             :src="require(`~/assets/images/browser/${b.icon}?data`)"
             alt=""
-            class="h-20 w-20 pointer-events-none"
+            class="h-16 w-16 pointer-events-none"
           />
           <p
             class="

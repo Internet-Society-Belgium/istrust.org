@@ -4,9 +4,24 @@ export default {
     days_ago: 'today | {days} day ago | {days} days ago',
     description: 'Verify the trustability of any website',
     get_the_addon: 'Get the add-on',
+    feature: {
+      title: 'A website seems suspicous ?',
+      subtitle: 'Find out by checking',
+      domain: {
+        title: 'Domain',
+        creation: 'Creation',
+        change: 'Last change',
+        owner: 'Owner',
+      },
+      communication: {
+        title: 'Communication',
+        secure: 'Secure',
+        subject: 'Subject',
+      },
+    },
     download: {
       title: 'Download',
-      description: 'All available platforms',
+      description: 'All available stores',
     },
     opensource: {
       title: [

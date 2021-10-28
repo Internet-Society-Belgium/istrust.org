@@ -4,9 +4,24 @@ export default {
     days_ago: 'vandaag | {days} dag geleden | {days} dagen geleden',
     description: 'De betrouwbaarheid van elke website verifiëren',
     get_the_addon: 'Add-on toevoegen',
+    feature: {
+      title: 'Ziet een website er verdacht uit ?',
+      subtitle: 'Het te ontdekken met het controleren van',
+      domain: {
+        title: 'Domein',
+        creation: 'Schepping',
+        change: 'Laatste wijziging',
+        owner: 'Eigenaar',
+      },
+      communication: {
+        title: 'Communicatie',
+        secure: 'Beveilig',
+        subject: 'Onderwerp',
+      },
+    },
     download: {
       title: 'Download',
-      description: 'Alle beschikbare platforms',
+      description: 'Alle beschikbare winkels',
     },
     opensource: {
       title: [
