@@ -15,7 +15,7 @@ export default {
       },
       communication: {
         title: 'Communication',
-        secure: 'Sécurisé',
+        secure: 'Sécurisée',
         subject: 'Sujet',
       },
     },
