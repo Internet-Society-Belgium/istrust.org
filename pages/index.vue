@@ -12,7 +12,7 @@
               enter-to-class="opacity-100"
             >
               <a
-                v-if="latestVersion.name && latestVersion.days"
+                v-if="latestVersion.name"
                 href="https://github.com/Internet-Society-Belgium/isTrust/releases"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -35,9 +35,9 @@
                   {{
                     $tc(
                       'index.days_ago',
-                      latestVersion.days == 0
+                      latestVersion.days === 0
                         ? 0
-                        : latestVersion.days == 1
+                        : latestVersion.days === 1
                         ? 1
                         : 2,
                       {
