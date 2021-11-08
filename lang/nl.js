@@ -6,7 +6,7 @@ export default {
     get_the_addon: 'Add-on toevoegen',
     feature: {
       title: 'Ziet een website er verdacht uit ?',
-      subtitle: 'Het te ontdekken met het controleren van',
+      subtitle: 'Ontdekt het met het controleren van',
       domain: {
         title: 'Domein',
         creation: 'Schepping',
