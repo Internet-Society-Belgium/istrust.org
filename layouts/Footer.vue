@@ -24,7 +24,14 @@
         dark:text-dark-secondary-light
       "
     >
-      <span>2021 © Internet Society Chapter Belgium</span>
+      <span
+        >{{
+          new Date().getFullYear() === 2021
+            ? `${new Date().getFullYear()}`
+            : `2021 - ${new Date().getFullYear()}`
+        }}
+        © Internet Society Chapter Belgium</span
+      >
       <span>
         {{ $t('footer.made_by') }}
         <a
