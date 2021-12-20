@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 module.exports = {
+	purne: false,
 	content: ['./src/**/*.tsx'],
 	theme: {
 		colors: {
