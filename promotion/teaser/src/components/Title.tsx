@@ -7,17 +7,7 @@ export const Title: React.FC<{
 	const frame = useCurrentFrame();
 	const text = titleText.split(' ').map((t) => ` ${t} `);
 	return (
-		<h1
-			style={{
-				fontFamily: 'SF Pro Text, Helvetica, Arial',
-				fontWeight: 'bold',
-				fontSize: 100,
-				textAlign: 'center',
-				position: 'absolute',
-				bottom: 160,
-				width: '100%',
-			}}
-		>
+		<h1 className="text-primary">
 			{text.map((t, i) => {
 				return (
 					<span

@@ -1,5 +1,6 @@
 import {Composition} from 'remotion';
 import {Main} from './compositions/Main';
+import './style.css';
 
 export const RemotionVideo: React.FC = () => {
 	return (
