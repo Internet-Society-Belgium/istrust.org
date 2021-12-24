@@ -6,10 +6,14 @@ export const Lottie: React.FC<{
 	loop?: boolean;
 }> = ({data, loop}) => {
 	let frame = useCurrentFrame();
+	const {op} = data;
 
-	if (loop) {
-		const {op} = data;
-		frame = frame % op;
+	if (frame > op) {
+		if (loop) {
+			frame = frame % op;
+		} else {
+			frame = op - 1;
+		}
 	}
 
 	return (
