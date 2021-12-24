@@ -1,7 +1,10 @@
 import {Sequence, useVideoConfig, Audio, AbsoluteFill} from 'remotion';
 import {Title} from '../components/Title';
 import {FullCenter} from '../components/FullCenter';
-import audio from '../../assets/audio/jazzy-abstract-beat.mp3';
+import {Lottie} from '../components/Lottie';
+
+import audio from '../../public/audios/jazzy-abstract-beat.mp3';
+import test from '../../public/animations/test.json';
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
@@ -17,8 +20,10 @@ export const Main: React.FC = () => {
 				<Audio src={audio} />
 			</Sequence>
 
-			<Sequence name="introducing isTrust" from={0} durationInFrames={100}>
-				<></>
+			<Sequence name="introducing isTrust" from={10} durationInFrames={100}>
+				<FullCenter>
+					<Lottie data={test} />
+				</FullCenter>
 			</Sequence>
 
 			<Sequence
