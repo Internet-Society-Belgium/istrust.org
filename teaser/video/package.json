@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"start": "remotion preview src/index.tsx",
-		"build": "remotion render src/index.tsx Main out/teaser.mp4",
+		"build:1920x1080": "remotion render src/index.tsx 1920x1080 out/teaser-1920x1080.mp4",
 		"upgrade": "remotion upgrade",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},
