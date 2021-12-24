@@ -22,7 +22,7 @@ export const Main: React.FC = () => {
 
 			<Sequence name="introducing isTrust" from={10} durationInFrames={100}>
 				<FullCenter>
-					<Lottie data={test} />
+					<Lottie data={test} loop={true} />
 				</FullCenter>
 			</Sequence>
 

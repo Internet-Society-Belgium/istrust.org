@@ -3,8 +3,14 @@ import {default as Player} from 'lottie-react';
 
 export const Lottie: React.FC<{
 	data: any;
-}> = ({data}) => {
-	const frame = useCurrentFrame();
+	loop?: boolean;
+}> = ({data, loop}) => {
+	let frame = useCurrentFrame();
+
+	if (loop) {
+		const {op} = data;
+		frame = frame % op;
+	}
 
 	return (
 		<Player
