@@ -3,6 +3,7 @@
 module.exports = {
 	purne: false,
 	content: ['./src/**/*.tsx'],
+	darkMode: 'class',
 	theme: {
 		colors: {
 			primary: '#0077FF',

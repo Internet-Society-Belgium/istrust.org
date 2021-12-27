@@ -28,22 +28,18 @@ export const BrowserTitleBar: React.FC<{
 				>
 					<button
 						type="button"
-						aria-label="Previous screenshot"
 						className="
               w-9
               h-9
               flex
               justify-center
               items-center
-              rounded
               disabled:bg-opacity-0
               dark:disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
               disabled:text-opacity-20
               dark:disabled:text-opacity-20
-              disabled:pointer-events-none
-              dark:disabled:pointer-events-none
             "
 					>
 						<svg
@@ -57,23 +53,20 @@ export const BrowserTitleBar: React.FC<{
 						</svg>
 					</button>
 					<button
+						disabled
 						type="button"
-						aria-label="Next screenshot"
 						className="
               w-9
               h-9
               flex
               justify-center
               items-center
-              rounded
               disabled:bg-opacity-0
               dark:disabled:bg-opacity-0
               text-secondary
               dark:text-dark-secondary
               disabled:text-opacity-20
               dark:disabled:text-opacity-20
-              disabled:pointer-events-none
-              dark:disabled:pointer-events-none
             "
 					>
 						<svg
@@ -84,6 +77,32 @@ export const BrowserTitleBar: React.FC<{
 							fill="currentColor"
 						>
 							<path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" />
+						</svg>
+					</button>
+					<button
+						type="button"
+						className="
+              w-9
+              h-9
+              flex
+              justify-center
+              items-center
+              disabled:bg-opacity-0
+              dark:disabled:bg-opacity-0
+              text-secondary
+              dark:text-dark-secondary
+              disabled:text-opacity-20
+              dark:disabled:text-opacity-20
+            "
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="70%"
+							height="70%"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+						>
+							<path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
 						</svg>
 					</button>
 					<div
@@ -134,7 +153,7 @@ export const BrowserTitleBar: React.FC<{
 			</div>
 			{extension?.screenshot && (
 				<div className="flex justify-end">
-					<div>
+					<div className="w-full">
 						<div className="flex justify-end mr-3">
 							<div
 								className="
@@ -158,18 +177,19 @@ export const BrowserTitleBar: React.FC<{
 							</div>
 						</div>
 
-						<Img
-							src={extension.screenshot}
-							className="
-                  max-w-full
+						<div className="flex justify-end">
+							<Img
+								src={extension.screenshot}
+								className="
+								w-80
                   rounded-xl
                   border-4 border-secondary
                   dark:border-dark-secondary
                   border-opacity-20
                   dark:border-opacity-20
-                  pointer-events-none
                 "
-						/>
+							/>
+						</div>
 					</div>
 				</div>
 			)}
