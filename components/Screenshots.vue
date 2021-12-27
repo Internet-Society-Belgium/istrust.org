@@ -42,9 +42,9 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="24px"
+              width="70%"
+              height="70%"
               viewBox="0 0 24 24"
-              width="24px"
               fill="currentColor"
             >
               <path
@@ -80,9 +80,9 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="24px"
+              width="70%"
+              height="70%"
               viewBox="0 0 24 24"
-              width="24px"
               fill="currentColor"
             >
               <path
@@ -178,11 +178,14 @@
                 dark:text-opacity-20
               "
             >
-              <svg viewBox="0 0 255 127.5">
-                <polygon
-                  class="fill-current"
-                  points="0,127.5 127.5,0 255,127.5"
-                />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+                viewBox="0 0 255 127.5"
+                fill="currentColor"
+              >
+                <polygon points="0,127.5 127.5,0 255,127.5" />
               </svg>
             </div>
           </div>
