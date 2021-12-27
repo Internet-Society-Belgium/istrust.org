@@ -17,9 +17,10 @@ import {FullCenter} from '../utils/FullCenter';
 
 import './style.css';
 
-import icon from '../../public/images/icons/icon.svg';
+import icon from '../../public/images/istrust/icon.svg';
 import istrust_org from '../../public/images/screenshots/istrust_org.png';
 import istrust_org_tooltip from '../../public/images/screenshots/istrust_org-tooltip.png';
+import {Informations} from './sequences/Informations';
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
@@ -38,7 +39,7 @@ export const Main: React.FC = () => {
 				</Series.Sequence>
 
 				<Series.Sequence
-					name="istrust.org vs is-trust.org"
+					name="istrust.org or is-trust.org"
 					durationInFrames={100}
 				>
 					<FullCenter className="gap-10">
@@ -72,8 +73,8 @@ export const Main: React.FC = () => {
 					</FullCenter>
 				</Series.Sequence>
 
-				<Series.Sequence name="demo" durationInFrames={75}>
-					<Sequence from={0} durationInFrames={25}>
+				<Series.Sequence name="demo" durationInFrames={120}>
+					<Sequence from={0} durationInFrames={50}>
 						<FullCenter>
 							<BrowserTitleBar
 								url={new URL('https://www.istrust.org/')}
@@ -84,7 +85,7 @@ export const Main: React.FC = () => {
 						</FullCenter>
 					</Sequence>
 
-					<Sequence from={15} durationInFrames={25}>
+					<Sequence from={40} durationInFrames={40}>
 						<FullCenter>
 							<FadeTransition type="in" duration={10}>
 								<BrowserTitleBar
@@ -98,7 +99,7 @@ export const Main: React.FC = () => {
 						</FullCenter>
 					</Sequence>
 
-					<Sequence from={50} durationInFrames={25}>
+					<Sequence from={80} durationInFrames={40}>
 						<FullCenter>
 							<BrowserTitleBar
 								url={new URL('https://www.istrust.org/')}
@@ -109,6 +110,12 @@ export const Main: React.FC = () => {
 							/>
 						</FullCenter>
 					</Sequence>
+				</Series.Sequence>
+
+				<Series.Sequence name="informations" durationInFrames={100}>
+					<FullCenter>
+						<Informations />
+					</FullCenter>
 				</Series.Sequence>
 			</Series>
 		</>

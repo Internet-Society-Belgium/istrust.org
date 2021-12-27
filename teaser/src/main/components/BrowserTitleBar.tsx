@@ -1,8 +1,8 @@
 import {Img} from 'remotion';
-import icon from '../../../public/images/icons/icon.svg';
-import icon_ok from '../../../public/images/icons/icon-ok.svg';
-import icon_neutral from '../../../public/images/icons/icon-neutral.svg';
-import icon_warning from '../../../public/images/icons/icon-warning.svg';
+import icon from '../../../public/images/istrust/icon.svg';
+import icon_ok from '../../../public/images/istrust/icon-ok.svg';
+import icon_neutral from '../../../public/images/istrust/icon-neutral.svg';
+import icon_warning from '../../../public/images/istrust/icon-warning.svg';
 
 export const BrowserTitleBar: React.FC<{
 	url: URL;
