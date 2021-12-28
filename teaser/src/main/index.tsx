@@ -18,9 +18,10 @@ import {FullCenter} from '../utils/FullCenter';
 import './style.css';
 
 import icon from '../../public/images/istrust/icon.svg';
-import istrust_org from '../../public/images/screenshots/istrust_org.png';
-import istrust_org_tooltip from '../../public/images/screenshots/istrust_org-tooltip.png';
+
 import {Informations} from './sequences/Informations';
+import {InternetSociety} from './sequences/InternetSociety';
+import {Demo} from './sequences/Demo';
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
@@ -74,47 +75,20 @@ export const Main: React.FC = () => {
 				</Series.Sequence>
 
 				<Series.Sequence name="demo" durationInFrames={120}>
-					<Sequence from={0} durationInFrames={50}>
-						<FullCenter>
-							<BrowserTitleBar
-								url={new URL('https://www.istrust.org/')}
-								extension={{}}
-							/>
-							<div className="h-80"></div>
-							<div className="h-20"></div>
-						</FullCenter>
-					</Sequence>
-
-					<Sequence from={40} durationInFrames={40}>
-						<FullCenter>
-							<FadeTransition type="in" duration={10}>
-								<BrowserTitleBar
-									url={new URL('https://www.istrust.org/')}
-									extension={{
-										score: 'warning',
-										screenshot: istrust_org,
-									}}
-								/>
-							</FadeTransition>
-						</FullCenter>
-					</Sequence>
-
-					<Sequence from={80} durationInFrames={40}>
-						<FullCenter>
-							<BrowserTitleBar
-								url={new URL('https://www.istrust.org/')}
-								extension={{
-									score: 'warning',
-									screenshot: istrust_org_tooltip,
-								}}
-							/>
-						</FullCenter>
-					</Sequence>
+					<FullCenter>
+						<Demo />
+					</FullCenter>
 				</Series.Sequence>
 
 				<Series.Sequence name="informations" durationInFrames={100}>
 					<FullCenter>
 						<Informations />
+					</FullCenter>
+				</Series.Sequence>
+
+				<Series.Sequence name="Internet Society" durationInFrames={100}>
+					<FullCenter>
+						<InternetSociety />
 					</FullCenter>
 				</Series.Sequence>
 			</Series>

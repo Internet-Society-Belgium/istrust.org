@@ -8,7 +8,10 @@ export const BrowserTitleBar: React.FC<{
 	url: URL;
 	extension?: {
 		score?: 'ok' | 'neutral' | 'warning';
-		screenshot?: string;
+		screenshot?: {
+			src: string;
+			hidden?: boolean;
+		};
 	};
 }> = ({url, extension}) => {
 	return (
@@ -156,14 +159,15 @@ export const BrowserTitleBar: React.FC<{
 					<div className="w-full">
 						<div className="flex justify-end mr-3">
 							<div
-								className="
+								className={`
                 mt-1
                 w-5
                 text-secondary
                 dark:text-dark-secondary
                 text-opacity-20
                 dark:text-opacity-20
-              "
+				${extension.screenshot.hidden ? 'opacity-0' : ''}
+				`}
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -179,15 +183,16 @@ export const BrowserTitleBar: React.FC<{
 
 						<div className="flex justify-end">
 							<Img
-								src={extension.screenshot}
-								className="
+								src={extension.screenshot.src}
+								className={`
 								w-80
                   rounded-xl
                   border-4 border-secondary
                   dark:border-dark-secondary
                   border-opacity-20
-                  dark:border-opacity-20
-                "
+                  dark:border-opacity-
+				  ${extension.screenshot.hidden ? 'opacity-0' : ''}
+                `}
 							/>
 						</div>
 					</div>
