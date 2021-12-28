@@ -10,6 +10,7 @@ import {Scam} from './sequences/Scam';
 import {IsTrust} from './sequences/IsTrust';
 import {Real} from './sequences/Real';
 import {Hook} from './sequences/Hook';
+import {Values} from './sequences/Values';
 
 export const Main: React.FC = () => {
 	return (
@@ -61,6 +62,12 @@ export const Main: React.FC = () => {
 				<Series.Sequence name="Internet Society" durationInFrames={100}>
 					<FullCenter>
 						<InternetSociety />
+					</FullCenter>
+				</Series.Sequence>
+
+				<Series.Sequence name="values" durationInFrames={100}>
+					<FullCenter>
+						<Values />
 					</FullCenter>
 				</Series.Sequence>
 			</Series>
