@@ -1,4 +1,4 @@
-import {Audio, AbsoluteFill, Series} from 'remotion';
+import {Audio, AbsoluteFill, Series, Sequence, useVideoConfig} from 'remotion';
 import {FullCenter} from '../utils/FullCenter';
 
 import './style.css';
@@ -11,13 +11,30 @@ import {IsTrust} from './sequences/IsTrust';
 import {Real} from './sequences/Real';
 import {Hook} from './sequences/Hook';
 import {Values} from './sequences/Values';
+import {Cursor} from '../utils/Cursor';
+
+import cursor_animation from '../../public/animations/cursor.json';
 
 export const Main: React.FC = () => {
+	const videoConfig = useVideoConfig();
 	return (
 		<>
-			<AbsoluteFill className="bg-background" />
+			<Sequence
+				name="background"
+				from={0}
+				durationInFrames={videoConfig.durationInFrames}
+			>
+				<AbsoluteFill className="bg-background" />
+				{/* <Audio src={music} volume={0.2} /> */}
+			</Sequence>
 
-			{/* <Audio src={music} volume={0.2} /> */}
+			<Sequence
+				name="cursor"
+				from={0}
+				durationInFrames={videoConfig.durationInFrames}
+			>
+				<Cursor data={cursor_animation} />
+			</Sequence>
 
 			<Series>
 				<Series.Sequence name="hook" durationInFrames={100}>

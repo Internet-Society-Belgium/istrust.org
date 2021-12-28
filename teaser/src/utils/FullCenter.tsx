@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const FullCenter: React.FC<{className?: string}> = ({
 	className,
 	children,
