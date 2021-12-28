@@ -7,17 +7,14 @@ import {
 } from 'remotion';
 
 import cursor from '../../public/images/icons/cursor.svg';
+import {CursorAnimation, CursorAnimationStep} from '../types/Cursor';
 
-export const Cursor: React.FC<{
-	data: {
-		steps: {frame: number; x: number; y: number}[];
-	};
-}> = ({data}) => {
+export const Cursor: React.FC<CursorAnimation> = ({data}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
 	let previousStep = data.steps[0];
-	let step: {frame: number; x: number; y: number} | null = null;
+	let step: CursorAnimationStep | null = null;
 	for (const s of data.steps) {
 		if (s.frame <= frame) {
 			if (step) {
@@ -29,7 +26,6 @@ export const Cursor: React.FC<{
 
 	if (!step) return <></>;
 
-	const duration = 20;
 	const progress = spring({
 		frame: frame - step.frame,
 		fps,
@@ -53,7 +49,7 @@ export const Cursor: React.FC<{
 			src={cursor}
 			style={{
 				position: 'absolute',
-				zIndex: 10,
+				// zIndex: -10,
 				left: `${x}px`,
 				top: `${y}px`,
 				width: '2rem',
