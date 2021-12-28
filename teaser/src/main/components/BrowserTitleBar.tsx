@@ -1,11 +1,11 @@
-import {Img} from 'remotion';
+import {Img, useCurrentFrame, useVideoConfig} from 'remotion';
 import icon from '../../../public/images/istrust/icon.svg';
 import icon_ok from '../../../public/images/istrust/icon-ok.svg';
 import icon_neutral from '../../../public/images/istrust/icon-neutral.svg';
 import icon_warning from '../../../public/images/istrust/icon-warning.svg';
 
 export const BrowserTitleBar: React.FC<{
-	url: URL;
+	url?: URL;
 	extension?: {
 		score?: 'ok' | 'neutral' | 'warning';
 		screenshot?: {
@@ -13,7 +13,13 @@ export const BrowserTitleBar: React.FC<{
 			hidden?: boolean;
 		};
 	};
-}> = ({url, extension}) => {
+	typing?: boolean;
+}> = ({url, extension, typing}) => {
+	const frame = useCurrentFrame();
+	const videoConfig = useVideoConfig();
+
+	const frame_typing = Math.floor(frame / videoConfig.fps) % 2;
+
 	return (
 		<div>
 			<div className="flex justify-end">
@@ -121,23 +127,43 @@ export const BrowserTitleBar: React.FC<{
               dark:bg-secondary-dark-container
             "
 					>
-						<div className="flex truncate">
-							<span className="text-secondary-light dark:text-dark-secondary-light">
-								{url.protocol}
-							</span>
-							<span className="text-secondary-light dark:text-dark-secondary-light">
-								//
-							</span>
-							<span className="text-secondary-light dark:text-dark-secondary-light">
-								{url.host.split('.').slice(0, -2).join('.') + '.'}
-							</span>
-							<span className="text-secondary dark:text-dark-secondary">
-								{url.host.split('.').slice(-2).join('.')}
-							</span>
-							<span className="text-secondary-light dark:text-dark-secondary-light">
-								{url.pathname}
-							</span>
-						</div>
+						{url && (
+							<div className="flex truncate">
+								<span className="text-secondary-light dark:text-dark-secondary-light">
+									{url.protocol}
+								</span>
+								<span className="text-secondary-light dark:text-dark-secondary-light">
+									//
+								</span>
+								<span className="text-secondary-light dark:text-dark-secondary-light">
+									{url.host.split('.').slice(0, -2).join('.') + '.'}
+								</span>
+								<span className="text-secondary dark:text-dark-secondary">
+									{url.host.split('.').slice(-2).join('.')}
+								</span>
+								<span className="text-secondary-light dark:text-dark-secondary-light">
+									{url.pathname}
+								</span>
+							</div>
+						)}
+						{typing && frame_typing === 1 && (
+							<div className="text-secondary dark:text-dark-secondary">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-6 w-6"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M 2,4 V 20"
+									/>
+								</svg>
+							</div>
+						)}
 					</div>
 					{extension && (
 						<div className="w-9 h-9 p-2 rounded">
