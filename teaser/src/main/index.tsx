@@ -1,31 +1,17 @@
-import {
-	useVideoConfig,
-	Audio,
-	AbsoluteFill,
-	Series,
-	Img,
-	Sequence,
-} from 'remotion';
-import {Lottie} from '../utils/Lottie';
-
-import music from '../../public/audios/music.mp3';
-import test from '../../public/animations/test.json';
-import {Transition} from '../utils/Transition';
-import {FadeTransition} from '../utils/FadeTransition';
-import {BrowserTitleBar} from './components/BrowserTitleBar';
+import {Audio, AbsoluteFill, Series} from 'remotion';
 import {FullCenter} from '../utils/FullCenter';
 
 import './style.css';
 
-import icon from '../../public/images/istrust/icon.svg';
-
 import {Informations} from './sequences/Informations';
 import {InternetSociety} from './sequences/InternetSociety';
 import {Demo} from './sequences/Demo';
+import {Scam} from './sequences/Scam';
+import {IsTrust} from './sequences/IsTrust';
+import {Real} from './sequences/Real';
+import {Hook} from './sequences/Hook';
 
 export const Main: React.FC = () => {
-	const videoConfig = useVideoConfig();
-
 	return (
 		<>
 			<AbsoluteFill className="bg-background" />
@@ -35,7 +21,7 @@ export const Main: React.FC = () => {
 			<Series>
 				<Series.Sequence name="hook" durationInFrames={100}>
 					<FullCenter>
-						<Lottie data={test} loop={true} />
+						<Hook />
 					</FullCenter>
 				</Series.Sequence>
 
@@ -43,34 +29,20 @@ export const Main: React.FC = () => {
 					name="istrust.org or is-trust.org"
 					durationInFrames={100}
 				>
-					<FullCenter className="gap-10">
-						<BrowserTitleBar
-							url={new URL('https://www.istrust.org/')}
-							extension={{}}
-						/>
-						<div className="text-2xl text-secondary-light">OR</div>
-						<BrowserTitleBar
-							url={new URL('https://www.is-trust.org/')}
-							extension={{}}
-						/>
+					<FullCenter>
+						<Real />
 					</FullCenter>
 				</Series.Sequence>
 
-				<Series.Sequence name="fakesite.com" durationInFrames={100}>
+				<Series.Sequence name="scam.com" durationInFrames={100}>
 					<FullCenter>
-						<BrowserTitleBar
-							url={new URL('https://www.fakesite.com/')}
-							extension={{}}
-						/>
+						<Scam />
 					</FullCenter>
 				</Series.Sequence>
 
 				<Series.Sequence name="isTrust" durationInFrames={50}>
-					<FullCenter className="gap-8">
-						<Img src={icon} className="w-36 h-36" />
-						<div className="text-4xl text-center text-secondary font-semibold">
-							isTrust
-						</div>
+					<FullCenter>
+						<IsTrust />
 					</FullCenter>
 				</Series.Sequence>
 
