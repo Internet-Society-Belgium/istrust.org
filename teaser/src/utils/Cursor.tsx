@@ -49,7 +49,7 @@ export const Cursor: React.FC<CursorAnimation> = ({data}) => {
 			src={cursor}
 			style={{
 				position: 'absolute',
-				// zIndex: -10,
+				zIndex: 1000,
 				left: `${x}px`,
 				top: `${y}px`,
 				width: '2rem',
