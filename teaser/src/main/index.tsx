@@ -14,6 +14,7 @@ import {Values} from './sequences/Values';
 import {Cursor} from '../utils/Cursor';
 
 import cursor_animation from '../../public/animations/cursor.json';
+import music from '../../public/audios/music.mp3';
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
@@ -25,7 +26,7 @@ export const Main: React.FC = () => {
 				durationInFrames={videoConfig.durationInFrames}
 			>
 				<AbsoluteFill className="bg-background" />
-				{/* <Audio src={music} volume={0.2} /> */}
+				<Audio src={music} volume={0.2} />
 			</Sequence>
 
 			<Sequence
