@@ -164,6 +164,7 @@
                     />
                   </div>
                 </a>
+                <p>TODO number users</p>
               </div>
             </transition>
           </div>
@@ -461,7 +462,7 @@ interface Browser {
   icon: string
   link: string
   reviews: string
-  rating?: { average: number; count: number }
+  rating?: { average: number; count: number; users: number }
 }
 
 export default Vue.extend({
@@ -522,15 +523,27 @@ export default Vue.extend({
         reviews: matchedBrowser.reviews,
       }
 
-      if (uaBrowser === 'Firefox') {
+      if (uaBrowser === 'Chrome') {
+        fetch(
+          'https://chrome.google.com/webstore/ajax/detail?id=kinlknncggaihnhdcalijdmpbhbflalm&pv=20210820',
+          { method: 'POST' }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            this.browser.rating = {
+              average: data?.[0]?.[1]?.[0]?.[12],
+              count: data?.[0]?.[1]?.[0]?.[22],
+              users: data?.[0]?.[1]?.[0]?.[23],
+            }
+          })
+      } else if (uaBrowser === 'Firefox') {
         fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
           .then((res) => res.json())
           .then((data) => {
-            if (!data?.ratings?.average || !data?.ratings?.count) return
-            if (!this.browser) return
             this.browser.rating = {
-              average: data.ratings.average,
-              count: data.ratings.count,
+              average: data?.ratings?.average,
+              count: data?.ratings?.count,
+              users: data?.average_daily_users,
             }
           })
       }
