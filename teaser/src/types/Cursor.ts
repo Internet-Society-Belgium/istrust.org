@@ -1,7 +1,5 @@
 export interface CursorAnimation {
-	data: {
-		steps: CursorAnimationStep[];
-	};
+	steps: CursorAnimationStep[];
 }
 
 interface CursorAnimationStep {

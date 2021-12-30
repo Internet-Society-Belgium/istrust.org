@@ -6,6 +6,9 @@ export const Lottie: React.FC<{
 	loop?: boolean;
 }> = ({data, loop}) => {
 	let frame = useCurrentFrame();
+
+	if (!data.op) return <></>;
+
 	const {op} = data;
 
 	if (frame > op) {
@@ -20,7 +23,7 @@ export const Lottie: React.FC<{
 		<Player
 			autoplay={false}
 			initialSegment={[frame, frame]}
-			animationData={data}
+			animationData={JSON.parse(JSON.stringify(data))}
 		/>
 	);
 };

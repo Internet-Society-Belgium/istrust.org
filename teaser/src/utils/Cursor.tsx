@@ -10,7 +10,7 @@ import cursor from '../../public/images/icons/cursor.svg';
 import cursor_text from '../../public/images/icons/cursor_text.svg';
 import {CursorAnimation} from '../types/Cursor';
 
-export const Cursor: React.FC<CursorAnimation> = ({data}) => {
+export const Cursor: React.FC<{data: CursorAnimation}> = ({data}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
