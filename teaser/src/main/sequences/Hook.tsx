@@ -1,13 +1,16 @@
-import Lottie from 'lottie-react';
 import {BrowserTitleBar} from '../components/BrowserTitleBar';
 
-import hacker from '../../../public/animations/hacker.json';
+import warning from '../../../public/animations/warning.json';
+import {Lottie} from '../../utils/Lottie';
 
 export const Hook: React.FC = () => {
 	return (
 		<div className="flex flex-col justify-center items-center gap-10">
 			<BrowserTitleBar typing />
-			<Lottie animationData={hacker} />
 		</div>
 	);
+};
+
+export const Warning: React.FC = () => {
+	return <Lottie data={warning} />;
 };

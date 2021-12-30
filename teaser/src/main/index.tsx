@@ -9,7 +9,7 @@ import {Demo} from './sequences/Demo';
 import {Scam} from './sequences/Scam';
 import {IsTrust} from './sequences/IsTrust';
 import {Real} from './sequences/Real';
-import {Hook} from './sequences/Hook';
+import {Hook, Warning} from './sequences/Hook';
 import {Values} from './sequences/Values';
 import {Cursor} from '../utils/Cursor';
 
@@ -42,6 +42,12 @@ export const Main: React.FC = () => {
 					<FullCenter>
 						<Hook />
 					</FullCenter>
+
+					<Sequence from={50}>
+						<FullCenter>
+							<Warning />
+						</FullCenter>
+					</Sequence>
 				</Series.Sequence>
 
 				<Series.Sequence
