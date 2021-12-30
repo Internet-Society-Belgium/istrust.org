@@ -2,18 +2,28 @@
     "steps": [
         {
             "frame": 0,
-            "x": 0,
+            "type": "cursor",
+            "x": 1000,
             "y": 0
         },
         {
-            "frame": 25,
-            "x": 550,
-            "y": 550
+            "frame": 50,
+            "type": "cursor",
+            "x": 960,
+            "y": 210
+        },
+        {
+            "frame": 80,
+            "type": "text",
+            "x": 800,
+            "y": 215
         },
         {
             "frame": 100,
+            "type": "cursor",
             "x": 0,
-            "y": 0
+            "y": 0,
+            "slowness": 1
         }
     ]
 }

@@ -7,46 +7,50 @@ import {
 } from 'remotion';
 
 import cursor from '../../public/images/icons/cursor.svg';
-import {CursorAnimation, CursorAnimationStep} from '../types/Cursor';
+import cursor_text from '../../public/images/icons/cursor_text.svg';
+import {CursorAnimation} from '../types/Cursor';
 
 export const Cursor: React.FC<CursorAnimation> = ({data}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
-	let previousStep = data.steps[0];
-	let step: CursorAnimationStep | null = null;
-	for (const s of data.steps) {
-		if (s.frame <= frame) {
-			if (step) {
-				previousStep = step;
-			}
-			step = s;
+	let pStep: number = 0;
+	for (let step = 1; step < data.steps.length; step++) {
+		if (data.steps[step].frame <= frame) {
+			pStep = step;
 		}
 	}
+	let nStep: number;
+	if (pStep >= data.steps.length - 1) {
+		nStep = pStep;
+	} else {
+		nStep = pStep + 1;
+	}
 
-	if (!step) return <></>;
+	const previousStep = data.steps[pStep];
+	const nextStep = data.steps[nStep];
 
 	const progress = spring({
-		frame: frame - step.frame,
+		frame: Math.max(0, frame - previousStep.frame),
 		fps,
 		config: {
-			mass: 10,
+			mass: nextStep.slowness || 10,
 			damping: 200,
 		},
 	});
 
-	const x = interpolate(progress, [0, 1], [previousStep.x, step.x], {
+	const x = interpolate(progress, [0, 1], [previousStep.x, nextStep.x], {
 		extrapolateRight: 'clamp',
 		extrapolateLeft: 'clamp',
 	});
-	const y = interpolate(progress, [0, 1], [previousStep.y, step.y], {
+	const y = interpolate(progress, [0, 1], [previousStep.y, nextStep.y], {
 		extrapolateRight: 'clamp',
 		extrapolateLeft: 'clamp',
 	});
 
 	return (
 		<Img
-			src={cursor}
+			src={previousStep.type === 'text' ? cursor_text : cursor}
 			style={{
 				position: 'absolute',
 				zIndex: 1000,
