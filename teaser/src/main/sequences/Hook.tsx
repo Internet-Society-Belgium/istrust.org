@@ -12,5 +12,9 @@ export const Hook: React.FC = () => {
 };
 
 export const Warning: React.FC = () => {
-	return <Lottie data={warning} />;
+	return (
+		<div style={{zIndex: 110}}>
+			<Lottie data={warning} />
+		</div>
+	);
 };

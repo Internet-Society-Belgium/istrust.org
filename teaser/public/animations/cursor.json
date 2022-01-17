@@ -3,27 +3,20 @@
         {
             "frame": 0,
             "type": "cursor",
-            "x": 1000,
-            "y": 0
+            "x": 2000,
+            "y": 1100
         },
         {
             "frame": 50,
             "type": "cursor",
             "x": 960,
-            "y": 210
+            "y": 540
         },
         {
-            "frame": 80,
-            "type": "text",
-            "x": 800,
-            "y": 215
-        },
-        {
-            "frame": 100,
-            "type": "cursor",
-            "x": 0,
-            "y": 0,
-            "slowness": 1
+            "frame": 51,
+            "type": "hidden",
+            "x": 960,
+            "y": 540
         }
     ]
 }

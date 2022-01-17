@@ -53,11 +53,12 @@ export const Cursor: React.FC<{data: CursorAnimation}> = ({data}) => {
 			src={previousStep.type === 'text' ? cursor_text : cursor}
 			style={{
 				position: 'absolute',
-				zIndex: 1000,
+				zIndex: 100,
 				left: `${x}px`,
 				top: `${y}px`,
 				width: '2rem',
 				height: '2rem',
+				visibility: previousStep.type === 'hidden' ? 'hidden' : 'visible',
 			}}
 		/>
 	);
