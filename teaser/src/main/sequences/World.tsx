@@ -9,7 +9,7 @@ import {
 import world from '../../../public/images/icons/world.svg';
 import pulse from '../../../public/animations/pulse.json';
 
-import icon from '../../../public/images/istrust/icon.svg';
+import iconfill from '../../../public/images/istrust/icon-fill.svg';
 import {FullCenter} from '../../utils/FullCenter';
 import {Lottie} from '../../utils/Lottie';
 
@@ -113,6 +113,16 @@ export const World: React.FC = () => {
 		},
 	});
 
+	const spring_text = spring({
+		frame: Math.max(0, frame - frame_text),
+		fps,
+		config: {
+			damping: 100,
+			mass: 2,
+			stiffness: 200,
+		},
+	});
+
 	return (
 		<div>
 			<div
@@ -168,9 +178,36 @@ export const World: React.FC = () => {
 				))}
 			{frame > frame_logo && (
 				<FullCenter className="absolute">
+					<div
+						className="absolute"
+						style={{
+							opacity: interpolate(
+								frame,
+								[frame_text + 3, frame_text + 20],
+								[0, 1],
+								{
+									extrapolateLeft: 'clamp',
+									extrapolateRight: 'clamp',
+								}
+							),
+							transform: `translateX(${interpolate(
+								spring_text,
+								[0, 1],
+								[0, 200],
+								{
+									extrapolateLeft: 'clamp',
+									extrapolateRight: 'clamp',
+								}
+							)}px)`,
+						}}
+					>
+						<h1 className="text-4xl text-center text-secondary font-semibold">
+							istrust.org
+						</h1>
+					</div>
 					<div className="flex justify-center items-center">
 						<Img
-							src={icon}
+							src={iconfill}
 							className="w-36 h-36"
 							style={{
 								opacity: interpolate(
@@ -182,6 +219,15 @@ export const World: React.FC = () => {
 										extrapolateRight: 'clamp',
 									}
 								),
+								transform: `translateX(${interpolate(
+									spring_text,
+									[0, 1],
+									[0, -200],
+									{
+										extrapolateLeft: 'clamp',
+										extrapolateRight: 'clamp',
+									}
+								)}px)`,
 							}}
 						/>
 					</div>

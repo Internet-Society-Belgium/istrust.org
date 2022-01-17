@@ -96,7 +96,7 @@ export const Main: React.FC = () => {
 					</FullCenter>
 				</Series.Sequence>
 
-				<Series.Sequence name="world" durationInFrames={200}>
+				<Series.Sequence name="world" durationInFrames={300}>
 					<FullCenter>
 						<World />
 					</FullCenter>
