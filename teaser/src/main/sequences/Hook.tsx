@@ -13,7 +13,7 @@ export const Hook: React.FC = () => {
 
 export const Warning: React.FC = () => {
 	return (
-		<div style={{zIndex: 110}}>
+		<div style={{zIndex: 110, transform: 'scale(2)'}}>
 			<Lottie data={warning} />
 		</div>
 	);
