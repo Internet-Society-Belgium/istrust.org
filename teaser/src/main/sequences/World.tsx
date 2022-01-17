@@ -24,8 +24,8 @@ export const World: React.FC = () => {
 	const points = [
 		{
 			start: {
-				x: 540,
-				y: 380,
+				x: 527,
+				y: 385,
 			},
 			end: {
 				x: 936.5,
@@ -34,19 +34,18 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 980,
-				y: 400,
+				x: 974.5,
+				y: 401,
 			},
 			end: {
 				x: 845,
 				y: 440,
 			},
 		},
-
 		{
 			start: {
-				x: 900,
-				y: 380,
+				x: 898,
+				y: 370,
 			},
 			end: {
 				x: 1028,
@@ -55,8 +54,8 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 296.48,
-				y: 508.48,
+				x: 296,
+				y: 509,
 			},
 			end: {
 				x: 847,
@@ -65,8 +64,8 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 980,
-				y: 250,
+				x: 974,
+				y: 246,
 			},
 			end: {
 				x: 1027,
@@ -75,8 +74,8 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 1010,
-				y: 450,
+				x: 1007,
+				y: 447,
 			},
 			end: {
 				x: 880,
@@ -85,8 +84,8 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 300,
-				y: 100,
+				x: 1638,
+				y: 862,
 			},
 			end: {
 				x: 993,
@@ -95,8 +94,8 @@ export const World: React.FC = () => {
 		},
 		{
 			start: {
-				x: 850,
-				y: 350,
+				x: 852,
+				y: 324,
 			},
 			end: {
 				x: 936.5,
