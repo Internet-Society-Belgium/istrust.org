@@ -9,6 +9,7 @@ import {
 import world from '../../../public/images/icons/world.svg';
 import pulse from '../../../public/animations/pulse.json';
 
+import icon from '../../../public/images/istrust/icon.svg';
 import {FullCenter} from '../../utils/FullCenter';
 import {Lottie} from '../../utils/Lottie';
 
@@ -16,7 +17,9 @@ export const World: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
-	const frame_logo = 50;
+	const frame_animation = 50;
+	const frame_logo = 120;
+	const frame_text = 160;
 
 	const points = [
 		{
@@ -103,10 +106,10 @@ export const World: React.FC = () => {
 	];
 
 	const spring_positions = spring({
-		frame: Math.max(0, frame - frame_logo),
+		frame: Math.max(0, frame - frame_animation),
 		fps,
 		config: {
-			mass: 10,
+			mass: 8,
 			damping: 200,
 		},
 	});
@@ -115,10 +118,15 @@ export const World: React.FC = () => {
 		<div>
 			<div
 				style={{
-					opacity: interpolate(frame, [frame_logo, frame_logo + 20], [1, 0], {
-						extrapolateLeft: 'clamp',
-						extrapolateRight: 'clamp',
-					}),
+					opacity: interpolate(
+						frame,
+						[frame_animation, frame_animation + 20],
+						[1, 0],
+						{
+							extrapolateLeft: 'clamp',
+							extrapolateRight: 'clamp',
+						}
+					),
 				}}
 			>
 				<Img
@@ -129,35 +137,57 @@ export const World: React.FC = () => {
 					}}
 				/>
 			</div>
-			{points.map((point) => (
-				<div
-					className="absolute"
-					style={{
-						left: `${interpolate(
-							spring_positions,
-							[0, 1],
-							[point.start.x, point.end.x],
-							{
-								extrapolateRight: 'clamp',
-								extrapolateLeft: 'clamp',
-							}
-						)}px`,
-						top: `${interpolate(
-							spring_positions,
-							[0, 1],
-							[point.start.y, point.end.y],
-							{
-								extrapolateRight: 'clamp',
-								extrapolateLeft: 'clamp',
-							}
-						)}px`,
-					}}
-				>
-					<div className="w-6 h-6">
-						<Lottie data={pulse} loop />
+			{frame < frame_logo + 20 &&
+				points.map((point) => (
+					<div
+						className="absolute"
+						style={{
+							left: `${interpolate(
+								spring_positions,
+								[0, 1],
+								[point.start.x, point.end.x],
+								{
+									extrapolateRight: 'clamp',
+									extrapolateLeft: 'clamp',
+								}
+							)}px`,
+							top: `${interpolate(
+								spring_positions,
+								[0, 1],
+								[point.start.y, point.end.y],
+								{
+									extrapolateRight: 'clamp',
+									extrapolateLeft: 'clamp',
+								}
+							)}px`,
+						}}
+					>
+						<div className="w-6 h-6">
+							<Lottie data={pulse} loop />
+						</div>
 					</div>
-				</div>
-			))}
+				))}
+			{frame > frame_logo && (
+				<FullCenter className="absolute">
+					<div className="flex justify-center items-center">
+						<Img
+							src={icon}
+							className="w-36 h-36"
+							style={{
+								opacity: interpolate(
+									frame,
+									[frame_logo, frame_logo + 20],
+									[0, 1],
+									{
+										extrapolateLeft: 'clamp',
+										extrapolateRight: 'clamp',
+									}
+								),
+							}}
+						/>
+					</div>
+				</FullCenter>
+			)}
 		</div>
 	);
 };
