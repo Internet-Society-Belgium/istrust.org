@@ -13,12 +13,9 @@ export const BrowserTitleBar: React.FC<{
 			hidden?: boolean;
 		};
 	};
-	typing?: boolean;
-}> = ({url, extension, typing}) => {
+}> = ({url, extension}) => {
 	const frame = useCurrentFrame();
 	const videoConfig = useVideoConfig();
-
-	const frame_typing = Math.floor(frame / videoConfig.fps) % 2;
 
 	return (
 		<div>
@@ -144,24 +141,6 @@ export const BrowserTitleBar: React.FC<{
 								<span className="text-secondary-light dark:text-dark-secondary-light">
 									{url.pathname}
 								</span>
-							</div>
-						)}
-						{typing && frame_typing === 1 && (
-							<div className="text-secondary dark:text-dark-secondary">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									className="h-6 w-6"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M 2,4 V 20"
-									/>
-								</svg>
 							</div>
 						)}
 					</div>

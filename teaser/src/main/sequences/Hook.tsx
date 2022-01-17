@@ -6,7 +6,7 @@ import {Lottie} from '../../utils/Lottie';
 export const Hook: React.FC = () => {
 	return (
 		<div className="flex flex-col justify-center items-center gap-10">
-			<BrowserTitleBar typing />
+			<BrowserTitleBar />
 		</div>
 	);
 };
