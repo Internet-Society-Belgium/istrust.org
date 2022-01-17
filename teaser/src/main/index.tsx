@@ -15,6 +15,7 @@ import {Cursor} from '../utils/Cursor';
 
 import cursor_animation from '../../public/animations/cursor.json';
 import music from '../../public/audios/music.mp3';
+import {World} from './sequences/World';
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
@@ -51,7 +52,7 @@ export const Main: React.FC = () => {
 				</Series.Sequence>
 
 				<Series.Sequence
-					name="istrust.org or is-trust.org"
+					name="istrust.com or istrust.org"
 					durationInFrames={100}
 				>
 					<FullCenter>
@@ -92,6 +93,12 @@ export const Main: React.FC = () => {
 				<Series.Sequence name="values" durationInFrames={100}>
 					<FullCenter>
 						<Values />
+					</FullCenter>
+				</Series.Sequence>
+
+				<Series.Sequence name="world" durationInFrames={100}>
+					<FullCenter>
+						<World />
 					</FullCenter>
 				</Series.Sequence>
 			</Series>
