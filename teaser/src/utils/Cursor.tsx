@@ -50,7 +50,7 @@ export const Cursor: React.FC<{data: CursorAnimation}> = ({data}) => {
 
 	return (
 		<Img
-			src={previousStep.type === 'text' ? cursor_text : cursor}
+			src={previousStep?.type === 'text' ? cursor_text : cursor}
 			style={{
 				position: 'absolute',
 				zIndex: 100,
@@ -58,7 +58,7 @@ export const Cursor: React.FC<{data: CursorAnimation}> = ({data}) => {
 				top: `${y}px`,
 				width: '2rem',
 				height: '2rem',
-				visibility: previousStep.type === 'hidden' ? 'hidden' : 'visible',
+				visibility: previousStep?.type === 'hidden' ? 'hidden' : 'visible',
 			}}
 		/>
 	);

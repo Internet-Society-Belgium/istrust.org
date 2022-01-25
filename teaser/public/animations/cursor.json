@@ -2,21 +2,42 @@
     "steps": [
         {
             "frame": 0,
-            "type": "cursor",
             "x": 2000,
             "y": 1100
         },
         {
             "frame": 50,
-            "type": "cursor",
             "x": 960,
             "y": 540
         },
         {
-            "frame": 51,
+            "frame": 52,
             "type": "hidden",
             "x": 960,
             "y": 540
+        },
+        {
+            "frame": 350,
+            "x": 2000,
+            "y": 1100
+        },
+        {
+            "frame": 400,
+            "slowness": "4",
+            "x": 1385,
+            "y": 130
+        },
+        {
+            "frame": 430,
+            "slowness": "3",
+            "x": 1020,
+            "y": 525
+        },
+        {
+            "frame": 470,
+            "type": "hidden",
+            "x": 1020,
+            "y": 525
         }
     ]
 }
