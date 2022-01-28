@@ -1,4 +1,11 @@
-import {Audio, AbsoluteFill, Series, Sequence, useVideoConfig} from 'remotion';
+import {
+	Audio,
+	AbsoluteFill,
+	Series,
+	Sequence,
+	useVideoConfig,
+	staticFile,
+} from 'remotion';
 import {FullCenter} from '../utils/FullCenter';
 
 import './style.css';
@@ -11,14 +18,27 @@ import {IsTrust} from './sequences/IsTrust';
 import {Real} from './sequences/Real';
 import {Hook, Warning} from './sequences/Hook';
 import {Values} from './sequences/Values';
+import {World} from './sequences/World';
+
 import {Cursor} from '../utils/Cursor';
 
 import cursor_animation from '../../public/animations/cursor.json';
-import music from '../../public/audios/music.mp3';
-import {World} from './sequences/World';
+import {Transition} from '../utils/Transition';
+import {FadeTransition} from '../utils/FadeTransition';
+
+const music = staticFile('/audios/music.mp3');
+const voice_hook = staticFile('/voices/hook.mp3');
+const voice_real_0 = staticFile('/voices/real_0.mp3');
+const voice_real_1 = staticFile('/voices/real_1.mp3');
+const voice_scam = staticFile('/voices/scam.mp3');
+const voice_istrust = staticFile('/voices/istrust.mp3');
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
+
+	const voice_volume = 1;
+	const music_volume = 0.2;
+
 	return (
 		<>
 			<Sequence
@@ -27,7 +47,7 @@ export const Main: React.FC = () => {
 				durationInFrames={videoConfig.durationInFrames}
 			>
 				<AbsoluteFill className="bg-background" />
-				<Audio src={music} volume={0.2} />
+				<Audio src={music} volume={music_volume} />
 			</Sequence>
 
 			<Sequence
@@ -35,11 +55,11 @@ export const Main: React.FC = () => {
 				from={0}
 				durationInFrames={videoConfig.durationInFrames}
 			>
-				<Cursor data={cursor_animation} />
+				<Cursor animation={cursor_animation} />
 			</Sequence>
 
 			<Series>
-				<Series.Sequence name="hook" durationInFrames={100}>
+				<Series.Sequence name="hook" durationInFrames={105}>
 					<FullCenter>
 						<Hook />
 					</FullCenter>
@@ -49,27 +69,46 @@ export const Main: React.FC = () => {
 							<Warning />
 						</FullCenter>
 					</Sequence>
+
+					<Sequence from={10}>
+						<Audio src={voice_hook} volume={voice_volume} />
+					</Sequence>
 				</Series.Sequence>
 
 				<Series.Sequence
 					name="istrust.com or istrust.org"
-					durationInFrames={100}
+					durationInFrames={180}
 				>
 					<FullCenter>
 						<Real />
 					</FullCenter>
+
+					<Sequence from={10}>
+						<Audio src={voice_real_0} volume={voice_volume} />
+					</Sequence>
+					<Sequence from={120}>
+						<Audio src={voice_real_1} volume={voice_volume} />
+					</Sequence>
 				</Series.Sequence>
 
-				<Series.Sequence name="scam.com" durationInFrames={100}>
+				<Series.Sequence name="scam.com" durationInFrames={180}>
 					<FullCenter>
 						<Scam />
 					</FullCenter>
+
+					<Sequence from={10}>
+						<Audio src={voice_scam} volume={voice_volume} />
+					</Sequence>
 				</Series.Sequence>
 
-				<Series.Sequence name="isTrust" durationInFrames={50}>
+				<Series.Sequence name="isTrust" durationInFrames={150}>
 					<FullCenter>
 						<IsTrust />
 					</FullCenter>
+
+					<Sequence from={10}>
+						<Audio src={voice_istrust} volume={voice_volume} />
+					</Sequence>
 				</Series.Sequence>
 
 				<Series.Sequence name="demo" durationInFrames={120}>
