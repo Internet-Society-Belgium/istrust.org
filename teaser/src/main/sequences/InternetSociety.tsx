@@ -1,8 +1,8 @@
-import {Img, useCurrentFrame} from 'remotion';
+import {Img, staticFile, useCurrentFrame} from 'remotion';
 
-import isoc_logo from '../../../public/images/isoc/logo.png';
-import isoc_internet_society from '../../../public/images/isoc/internet_society.png';
-import isoc_belgium_chapter from '../../../public/images/isoc/belgium_chapter.png';
+const isoc_logo = staticFile('/images/isoc/logo.png');
+const isoc_internet_society = staticFile('/images/isoc/internet_society.png');
+const isoc_belgium_chapter = staticFile('/images/isoc/belgium_chapter.png');
 
 export const InternetSociety: React.FC = () => {
 	const frame = useCurrentFrame();

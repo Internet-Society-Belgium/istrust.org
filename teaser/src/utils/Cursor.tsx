@@ -2,33 +2,34 @@ import {
 	Img,
 	interpolate,
 	spring,
+	staticFile,
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
-
-import cursor from '../../public/images/icons/cursor.svg';
-import cursor_text from '../../public/images/icons/cursor_text.svg';
 import {CursorAnimation} from '../types/Cursor';
 
-export const Cursor: React.FC<{data: CursorAnimation}> = ({data}) => {
+const cursor = staticFile('/images/icons/cursor.svg');
+const cursor_text = staticFile('/images/icons/cursor_text.svg');
+
+export const Cursor: React.FC<{animation: CursorAnimation}> = ({animation}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
 	let pStep: number = 0;
-	for (let step = 1; step < data.steps.length; step++) {
-		if (data.steps[step].frame <= frame) {
+	for (let step = 1; step < animation.steps.length; step++) {
+		if (animation.steps[step].frame <= frame) {
 			pStep = step;
 		}
 	}
 	let nStep: number;
-	if (pStep >= data.steps.length - 1) {
+	if (pStep >= animation.steps.length - 1) {
 		nStep = pStep;
 	} else {
 		nStep = pStep + 1;
 	}
 
-	const previousStep = data.steps[pStep];
-	const nextStep = data.steps[nStep];
+	const previousStep = animation.steps[pStep];
+	const nextStep = animation.steps[nStep];
 
 	const progress = spring({
 		frame: Math.max(0, frame - previousStep.frame),

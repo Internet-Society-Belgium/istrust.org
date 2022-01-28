@@ -4,8 +4,8 @@ export interface CursorAnimation {
 
 interface CursorAnimationStep {
 	frame: number;
-	type?: string;
 	x: number;
 	y: number;
+	type?: string;
 	slowness?: number;
 }

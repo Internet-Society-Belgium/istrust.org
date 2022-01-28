@@ -1,8 +1,10 @@
-import {useCurrentFrame} from 'remotion';
+import {staticFile, useCurrentFrame} from 'remotion';
 import {BrowserTitleBar} from '../components/BrowserTitleBar';
 
-import istrust_org from '../../../public/images/screenshots/istrust_org.png';
-import istrust_org_tooltip from '../../../public/images/screenshots/istrust_org-tooltip.png';
+const istrust_org = staticFile('/images/screenshots/istrust_org.png');
+const istrust_org_tooltip = staticFile(
+	'/images/screenshots/istrust_org-tooltip.png'
+);
 
 export const Demo: React.FC = () => {
 	const frame = useCurrentFrame();

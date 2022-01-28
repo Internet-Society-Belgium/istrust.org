@@ -1,12 +1,12 @@
-import {Img, useCurrentFrame} from 'remotion';
+import {Img, staticFile, useCurrentFrame} from 'remotion';
 
-import globe from '../../../public/images/icons/globe-alt.svg';
-import cake from '../../../public/images/icons/cake.svg';
-import refresh from '../../../public/images/icons/refresh.svg';
-import office_building from '../../../public/images/icons/office-building.svg';
-import switch_vertical from '../../../public/images/icons/switch-vertical.svg';
-import lock_closed from '../../../public/images/icons/lock-closed.svg';
-import identification from '../../../public/images/icons/identification.svg';
+const globe = staticFile('/images/icons/globe-alt.svg');
+const cake = staticFile('/images/icons/cake.svg');
+const refresh = staticFile('/images/icons/refresh.svg');
+const office_building = staticFile('/images/icons/office-building.svg');
+const switch_vertical = staticFile('/images/icons/switch-vertical.svg');
+const lock_closed = staticFile('/images/icons/lock-closed.svg');
+const identification = staticFile('/images/icons/identification.svg');
 
 export const Informations: React.FC = () => {
 	const frame = useCurrentFrame();

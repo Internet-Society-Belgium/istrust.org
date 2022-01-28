@@ -12,9 +12,9 @@
         },
         {
             "frame": 52,
-            "type": "hidden",
             "x": 960,
-            "y": 540
+            "y": 540,
+            "type": "hidden"
         },
         {
             "frame": 350,
@@ -23,21 +23,21 @@
         },
         {
             "frame": 400,
-            "slowness": "4",
             "x": 1385,
-            "y": 130
+            "y": 130,
+            "slowness": "4"
         },
         {
             "frame": 430,
-            "slowness": "3",
             "x": 1020,
-            "y": 525
+            "y": 525,
+            "slowness": "3"
         },
         {
             "frame": 470,
-            "type": "hidden",
             "x": 1020,
-            "y": 525
+            "y": 525,
+            "type": "hidden"
         }
     ]
 }

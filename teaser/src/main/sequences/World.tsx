@@ -4,14 +4,15 @@ import {
 	spring,
 	useCurrentFrame,
 	useVideoConfig,
+	staticFile,
 } from 'remotion';
-
-import world from '../../../public/images/icons/world.svg';
-import pulse from '../../../public/animations/pulse.json';
-
-import iconfill from '../../../public/images/istrust/icon-fill.svg';
 import {FullCenter} from '../../utils/FullCenter';
 import {Lottie} from '../../utils/Lottie';
+
+const world = staticFile('/images/icons/world.svg');
+const iconfill = staticFile('/images/istrust/icon-fill.svg');
+
+const pulse = staticFile('/animations/pulse.json');
 
 export const World: React.FC = () => {
 	const frame = useCurrentFrame();

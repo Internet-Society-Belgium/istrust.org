@@ -1,7 +1,7 @@
 import {BrowserTitleBar} from '../components/BrowserTitleBar';
+import {Lottie} from '../../utils/Lottie';
 
 import warning from '../../../public/animations/warning.json';
-import {Lottie} from '../../utils/Lottie';
 
 export const Hook: React.FC = () => {
 	return (
