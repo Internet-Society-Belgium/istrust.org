@@ -10,9 +10,9 @@ import {FullCenter} from '../../utils/FullCenter';
 import {Lottie} from '../../utils/Lottie';
 
 const world = staticFile('/images/icons/world.svg');
-const iconfill = staticFile('/images/istrust/icon-fill.svg');
+const icon_fill = staticFile('/images/istrust/icon-fill.svg');
 
-const pulse = staticFile('/animations/pulse.json');
+import pulse from '../../../public/animations/pulse.json';
 
 export const World: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -208,7 +208,7 @@ export const World: React.FC = () => {
 					</div>
 					<div className="flex justify-center items-center">
 						<Img
-							src={iconfill}
+							src={icon_fill}
 							className="w-36 h-36"
 							style={{
 								opacity: interpolate(

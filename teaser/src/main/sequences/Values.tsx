@@ -1,9 +1,9 @@
 import {Img, staticFile, useCurrentFrame} from 'remotion';
 
-const privacy = staticFile('/images/icons/privacy.png');
-const money = staticFile('/images/icons/money.png');
-const github = staticFile('/images/icons/github.png');
-const free = staticFile('/images/icons/free.png');
+const privacy = staticFile('/images/icons/privacy.svg');
+const money = staticFile('/images/icons/money.svg');
+const github = staticFile('/images/icons/github.svg');
+const free = staticFile('/images/icons/free.svg');
 
 export const Values: React.FC = () => {
 	const frame = useCurrentFrame();

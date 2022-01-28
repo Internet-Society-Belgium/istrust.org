@@ -8,6 +8,8 @@ export const InternetSociety: React.FC = () => {
 	const frame = useCurrentFrame();
 	const frame_isoc_global = 50;
 
+	// TODO flip
+
 	return (
 		<div className="w-1/2 flex gap-4">
 			<div className="flex justify-center items-center">
