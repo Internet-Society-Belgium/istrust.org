@@ -1,12 +1,7 @@
 <template>
   <header class="sticky top-0 z-50 bg-background dark:bg-dark-background">
     <div
-      class="
-        border-b-2 border-secondary-light
-        dark:border-dark-secondary-light
-        border-opacity-20
-        dark:border-opacity-20
-      "
+      class="border-b-2 border-secondary-light dark:border-dark-secondary-light border-opacity-20 dark:border-opacity-20"
     >
       <div class="flex justify-between py-4 px-8">
         <nuxt-link :to="localePath('/')">

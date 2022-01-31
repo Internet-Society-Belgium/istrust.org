@@ -1,14 +1,7 @@
 <template>
   <footer class="pt-8 pb-4 flex flex-col items-center gap-6">
     <div
-      class="
-        flex
-        justify-center
-        flex-wrap
-        gap-4
-        text-secondary
-        dark:text-dark-secondary
-      "
+      class="flex justify-center flex-wrap gap-4 text-secondary dark:text-dark-secondary"
     >
       <nuxt-link :to="localePath('legal')">{{ $t('legal.title') }}</nuxt-link>
       <nuxt-link :to="localePath('privacy')">{{
@@ -16,13 +9,7 @@
       }}</nuxt-link>
     </div>
     <p
-      class="
-        flex flex-col
-        gap-2
-        justify-center
-        text-center text-secondary-light
-        dark:text-dark-secondary-light
-      "
+      class="flex flex-col gap-2 justify-center text-center text-secondary-light dark:text-dark-secondary-light"
     >
       <span
         >{{

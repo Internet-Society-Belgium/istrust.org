@@ -3,40 +3,12 @@
     <div>
       <div class="flex justify-end">
         <div
-          class="
-            p-1
-            flex
-            justify-center
-            items-center
-            gap-1
-            bg-container
-            dark:bg-dark-container
-            rounded-md
-          "
+          class="p-1 flex justify-center items-center gap-1 bg-container dark:bg-dark-container rounded-md"
         >
           <button
             type="button"
             aria-label="Previous screenshot"
-            class="
-              w-9
-              h-9
-              flex
-              justify-center
-              items-center
-              rounded
-              hover:bg-secondary
-              dark:hover:bg-dark-secondary
-              hover:bg-opacity-10
-              dark:hover:bg-opacity-10
-              disabled:bg-opacity-0
-              dark:disabled:bg-opacity-0
-              text-secondary
-              dark:text-dark-secondary
-              disabled:text-opacity-20
-              dark:disabled:text-opacity-20
-              disabled:pointer-events-none
-              dark:disabled:pointer-events-none
-            "
+            class="w-9 h-9 flex justify-center items-center rounded hover:bg-secondary dark:hover:bg-dark-secondary hover:bg-opacity-10 dark:hover:bg-opacity-10 disabled:bg-opacity-0 dark:disabled:bg-opacity-0 text-secondary dark:text-dark-secondary disabled:text-opacity-20 dark:disabled:text-opacity-20 disabled:pointer-events-none dark:disabled:pointer-events-none"
             :disabled="currentScreenshot < 1"
             @click="previous"
           >
@@ -55,26 +27,7 @@
           <button
             type="button"
             aria-label="Next screenshot"
-            class="
-              w-9
-              h-9
-              flex
-              justify-center
-              items-center
-              rounded
-              hover:bg-secondary
-              dark:hover:bg-dark-secondary
-              hover:bg-opacity-10
-              dark:hover:bg-opacity-10
-              disabled:bg-opacity-0
-              dark:disabled:bg-opacity-0
-              text-secondary
-              dark:text-dark-secondary
-              disabled:text-opacity-20
-              dark:disabled:text-opacity-20
-              disabled:pointer-events-none
-              dark:disabled:pointer-events-none
-            "
+            class="w-9 h-9 flex justify-center items-center rounded hover:bg-secondary dark:hover:bg-dark-secondary hover:bg-opacity-10 dark:hover:bg-opacity-10 disabled:bg-opacity-0 dark:disabled:bg-opacity-0 text-secondary dark:text-dark-secondary disabled:text-opacity-20 dark:disabled:text-opacity-20 disabled:pointer-events-none dark:disabled:pointer-events-none"
             :disabled="currentScreenshot >= screenshots.length - 1"
             @click="next"
           >
@@ -91,18 +44,7 @@
             </svg>
           </button>
           <div
-            class="
-              h-9
-              w-60
-              sm:w-80
-              py-1
-              px-3
-              flex
-              items-center
-              rounded
-              bg-secondary-container
-              dark:bg-secondary-dark-container
-            "
+            class="h-9 w-60 sm:w-80 py-1 px-3 flex items-center rounded bg-secondary-container dark:bg-secondary-dark-container"
           >
             <div class="flex truncate">
               <span
@@ -169,14 +111,7 @@
         <div>
           <div class="flex justify-end mr-3">
             <div
-              class="
-                mt-1
-                w-5
-                text-secondary
-                dark:text-dark-secondary
-                text-opacity-20
-                dark:text-opacity-20
-              "
+              class="mt-1 w-5 text-secondary dark:text-dark-secondary text-opacity-20 dark:text-opacity-20"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -202,15 +137,7 @@
                 format="webp"
                 :src="file"
                 alt=""
-                class="
-                  max-w-full
-                  rounded-xl
-                  border-4 border-secondary
-                  dark:border-dark-secondary
-                  border-opacity-20
-                  dark:border-opacity-20
-                  pointer-events-none
-                "
+                class="max-w-full rounded-xl border-4 border-secondary dark:border-dark-secondary border-opacity-20 dark:border-opacity-20 pointer-events-none"
                 :class="
                   $colorMode.value === theme &&
                   currentScreenshot === screenshotIndex

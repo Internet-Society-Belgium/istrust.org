@@ -1,13 +1,7 @@
 <template>
   <div class="p-20 flex justify-center">
     <div
-      class="
-        max-w-xl
-        flex flex-col
-        gap-8
-        text-secondary
-        dark:text-dark-secondary
-      "
+      class="max-w-xl flex flex-col gap-8 text-secondary dark:text-dark-secondary"
     >
       <h1 class="text-4xl text-center font-semibold">
         {{ $t('privacy.title') }}
