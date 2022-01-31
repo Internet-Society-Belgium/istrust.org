@@ -10,8 +10,8 @@
         {{ $t('legal.who.title') }}
       </h2>
       <p>
-        <a href="https://www.istrust.org" class="underline text-primary"
-          >www.istrust.org</a
+        <a href="https://istrust.org" class="underline text-primary"
+          >istrust.org</a
         >
         {{ $t('legal.who.organisation') }}
       </p>
@@ -29,8 +29,8 @@
 
       <p>
         {{ $t('legal.who.website') }}
-        <a href="https://www.internetsociety.be" class="underline text-primary"
-          >www.internetsociety.be</a
+        <a href="https://internetsociety.be" class="underline text-primary"
+          >internetsociety.be</a
         >
       </p>
     </div>

@@ -18,7 +18,7 @@
             : `2021 - ${new Date().getFullYear()}`
         }}{{ ` © `
         }}<a
-          href="https://www.internetsociety.be/"
+          href="https://internetsociety.be"
           target="_blank"
           rel="noopener noreferrer"
           class="underline"
@@ -29,7 +29,7 @@
       <span>
         {{ $t('footer.made_by') }}
         <a
-          href="https://www.etoome.com/"
+          href="https://etoome.com"
           target="_blank"
           rel="noopener noreferrer"
           class="underline"
