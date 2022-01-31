@@ -93,15 +93,13 @@
                     v-if="browser.rating"
                     class="flex flex-row items-center group"
                   >
-                    <div>
-                      <img
-                        v-for="star in browser.rating.average"
-                        :key="star"
-                        src="~/assets/images/svg/star.svg?data"
-                        alt="star"
-                        class="w-6 h-6 pointer-events-none group-hover:opacity-90"
-                      />
-                    </div>
+                    <img
+                      v-for="star in browser.rating.average"
+                      :key="star"
+                      src="~/assets/images/svg/star.svg?data"
+                      alt="star"
+                      class="w-6 h-6 pointer-events-none group-hover:opacity-90"
+                    />
                     <p
                       class="px-1 py-1 flex text-sm text-secondary-light dark:text-dark-secondary-light"
                     >
