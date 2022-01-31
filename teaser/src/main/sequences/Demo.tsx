@@ -8,8 +8,8 @@ const istrust_org_tooltip = staticFile(
 
 export const Demo: React.FC = () => {
 	const frame = useCurrentFrame();
-	const frame_screenshot = 50;
-	const frame_tooltip = 75;
+	const frame_screenshot = 55;
+	const frame_tooltip = 115;
 
 	return (
 		<div>

@@ -32,12 +32,15 @@ const voice_real_0 = staticFile('/voices/real_0.mp3');
 const voice_real_1 = staticFile('/voices/real_1.mp3');
 const voice_scam = staticFile('/voices/scam.mp3');
 const voice_istrust = staticFile('/voices/istrust.mp3');
+const voice_demo_0 = staticFile('/voices/demo_0.mp3');
+const voice_demo_1 = staticFile('/voices/demo_1.mp3');
+const voice_demo_2 = staticFile('/voices/demo_2.mp3');
 
 export const Main: React.FC = () => {
 	const videoConfig = useVideoConfig();
 
 	const voice_volume = 1;
-	const music_volume = 0.2;
+	const music_volume = 0.1;
 
 	return (
 		<>
@@ -101,7 +104,7 @@ export const Main: React.FC = () => {
 					</Sequence>
 				</Series.Sequence>
 
-				<Series.Sequence name="isTrust" durationInFrames={150}>
+				<Series.Sequence name="isTrust" durationInFrames={110}>
 					<FullCenter>
 						<IsTrust />
 					</FullCenter>
@@ -111,10 +114,20 @@ export const Main: React.FC = () => {
 					</Sequence>
 				</Series.Sequence>
 
-				<Series.Sequence name="demo" durationInFrames={120}>
+				<Series.Sequence name="demo" durationInFrames={210}>
 					<FullCenter>
 						<Demo />
 					</FullCenter>
+
+					<Sequence from={10}>
+						<Audio src={voice_demo_0} volume={voice_volume} />
+					</Sequence>
+					<Sequence from={60}>
+						<Audio src={voice_demo_1} volume={voice_volume} />
+					</Sequence>
+					<Sequence from={130}>
+						<Audio src={voice_demo_2} volume={voice_volume} />
+					</Sequence>
 				</Series.Sequence>
 
 				<Series.Sequence name="informations" durationInFrames={100}>
