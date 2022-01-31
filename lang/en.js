@@ -5,7 +5,7 @@ export default {
     description: 'Verify the trustability of any website',
     get_the_addon: 'Get the add-on',
     feature: {
-      title: 'A website seems suspicous ?',
+      title: 'A website seems suspicious ?',
       subtitle: 'Find out by checking',
       domain: {
         title: 'Domain',
