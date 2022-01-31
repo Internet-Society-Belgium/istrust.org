@@ -29,11 +29,11 @@
       <span>
         {{ $t('footer.made_by') }}
         <a
-          href="https://progiciel.be"
+          href="https://www.etoome.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="underline"
-          >Progiciel</a
+          >etoome</a
         >
       </span>
     </p>
