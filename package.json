@@ -20,7 +20,7 @@
     "@nuxt/image": "0.6.0",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/color-mode": "^2.1.1",
+    "@nuxtjs/color-mode": "github:Progitiel/color-mode-module",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/svg": "^0.3.0",
