@@ -16,9 +16,16 @@
           new Date().getFullYear() === 2021
             ? `${new Date().getFullYear()}`
             : `2021 - ${new Date().getFullYear()}`
-        }}
-        © Internet Society Chapter Belgium</span
+        }}{{ ` © `
+        }}<a
+          href="https://www.internetsociety.be/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline"
+          >Internet Society Chapter Belgium</a
+        ></span
       >
+
       <span>
         {{ $t('footer.made_by') }}
         <a
