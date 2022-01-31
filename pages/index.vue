@@ -19,15 +19,7 @@
                 class="flex gap-4 my-3 items-center w-min whitespace-nowrap"
               >
                 <span
-                  class="
-                    uppercase
-                    bg-primary bg-opacity-20
-                    text-primary text-xs
-                    font-semibold
-                    px-2
-                    py-1
-                    rounded-md
-                  "
+                  class="uppercase bg-primary bg-opacity-20 text-primary text-xs font-semibold px-2 py-1 rounded-md"
                   >{{ $t('index.new_release') }}
                 </span>
                 <span class="text-sm font-medium text-primary"
@@ -50,44 +42,19 @@
             </transition>
           </div>
           <h1
-            class="
-              text-secondary
-              dark:text-dark-secondary
-              text-5xl
-              font-semibold
-              text-center
-              lg:text-left
-            "
+            class="text-secondary dark:text-dark-secondary text-5xl font-semibold text-center lg:text-left"
           >
             isTrust
           </h1>
           <h2
-            class="
-              text-secondary
-              dark:text-dark-secondary
-              text-2xl text-center
-              lg:text-left
-            "
+            class="text-secondary dark:text-dark-secondary text-2xl text-center lg:text-left"
           >
             {{ $t('index.description') }}
           </h2>
           <div class="mt-9">
             <button
               type="button"
-              class="
-                inline-flex
-                items-center
-                gap-3
-                py-4
-                px-6
-                bg-primary
-                text-dark-secondary
-                shadow
-                rounded-md
-                font-medium
-                group
-                hover:bg-opacity-90
-              "
+              class="inline-flex items-center gap-3 py-4 px-6 bg-primary text-dark-secondary shadow rounded-md font-medium group hover:bg-opacity-90"
               @click="
                 browser.link && browser.icon
                   ? goTo(browser.link)
@@ -116,7 +83,7 @@
               enter-class="opacity-0"
               enter-to-class="opacity-100"
             >
-              <div v-if="browser.reviews" class="flex gap-2">
+              <div class="flex gap-2">
                 <a
                   :href="browser.reviews"
                   target="_blank"
@@ -126,20 +93,17 @@
                     v-if="browser.rating"
                     class="flex flex-row items-center group"
                   >
-                    <img
-                      v-for="star in browser.rating.average"
-                      :key="star"
-                      src="~/assets/images/svg/star.svg?data"
-                      alt="star"
-                      class="w-6 h-6 pointer-events-none group-hover:opacity-90"
-                    />
+                    <div>
+                      <img
+                        v-for="star in browser.rating.average"
+                        :key="star"
+                        src="~/assets/images/svg/star.svg?data"
+                        alt="star"
+                        class="w-6 h-6 pointer-events-none group-hover:opacity-90"
+                      />
+                    </div>
                     <p
-                      class="
-                        px-1
-                        flex
-                        text-sm text-secondary-light
-                        dark:text-dark-secondary-light
-                      "
+                      class="px-1 py-1 flex text-sm text-secondary-light dark:text-dark-secondary-light"
                     >
                       <span class="font-light">(</span>
                       <span class="font-medium">{{
@@ -154,17 +118,10 @@
                       :key="star"
                       src="~/assets/images/svg/star.svg?data"
                       alt="star"
-                      class="
-                        w-6
-                        h-6
-                        opacity-60
-                        group-hover:opacity-50
-                        pointer-events-none
-                      "
+                      class="w-6 h-6 opacity-60 group-hover:opacity-50 pointer-events-none"
                     />
                   </div>
                 </a>
-                <p>TODO number users</p>
               </div>
             </transition>
           </div>
@@ -176,23 +133,12 @@
     <section class="flex flex-col items-center gap-10 p-20 pt-0">
       <div>
         <h3
-          class="
-            text-secondary
-            dark:text-dark-secondary
-            text-4xl text-center
-            font-semibold
-            p-2
-          "
+          class="text-secondary dark:text-dark-secondary text-4xl text-center font-semibold p-2"
         >
           {{ $t('index.feature.title') }}
         </h3>
         <h4
-          class="
-            text-secondary-light
-            dark:text-dark-secondary
-            text-2xl text-center
-            p-2
-          "
+          class="text-secondary-light dark:text-dark-secondary text-2xl text-center p-2"
         >
           {{ $t('index.feature.subtitle') }}
         </h4>
@@ -207,27 +153,10 @@
             />
           </div>
           <div
-            class="
-              h-full
-              w-60
-              p-4
-              pt-8
-              flex flex-col
-              justify-evenly
-              items-center
-              bg-container
-              dark:bg-dark-container
-              rounded-lg
-            "
+            class="h-full w-60 p-4 pt-8 flex flex-col justify-evenly items-center bg-container dark:bg-dark-container rounded-lg"
           >
             <h3
-              class="
-                p-2
-                text-secondary
-                dark:text-dark-secondary
-                text-xl
-                font-medium
-              "
+              class="p-2 text-secondary dark:text-dark-secondary text-xl font-medium"
             >
               {{ $t('index.feature.domain.title') }}
             </h3>
@@ -269,27 +198,10 @@
             />
           </div>
           <div
-            class="
-              h-full
-              w-60
-              p-4
-              pt-8
-              flex flex-col
-              justify-evenly
-              items-center
-              bg-container
-              dark:bg-dark-container
-              rounded-lg
-            "
+            class="h-full w-60 p-4 pt-8 flex flex-col justify-evenly items-center bg-container dark:bg-dark-container rounded-lg"
           >
             <h3
-              class="
-                p-2
-                text-secondary
-                dark:text-dark-secondary
-                text-xl
-                font-medium
-              "
+              class="p-2 text-secondary dark:text-dark-secondary text-xl font-medium"
             >
               {{ $t('index.feature.communication.title') }}
             </h3>
@@ -319,13 +231,7 @@
     <section id="download" class="px-20 gap-14 flex flex-col items-center">
       <div class="text-center">
         <h3
-          class="
-            text-secondary
-            dark:text-dark-secondary
-            text-4xl
-            font-semibold
-            p-4
-          "
+          class="text-secondary dark:text-dark-secondary text-4xl font-semibold p-4"
         >
           {{ $t('index.download.title') }}
         </h3>
@@ -338,14 +244,7 @@
           v-for="(b, i) in browsers"
           :key="i"
           :href="b.link"
-          class="
-            p-10
-            flex flex-col
-            gap-4
-            bg-container
-            dark:bg-dark-container
-            rounded-xl
-          "
+          class="p-10 flex flex-col gap-4 bg-container dark:bg-dark-container rounded-xl"
         >
           <img
             :src="require(`~/assets/images/browser/${b.icon}?data`)"
@@ -353,13 +252,7 @@
             class="h-16 w-16 pointer-events-none"
           />
           <p
-            class="
-              text-secondary
-              dark:text-dark-secondary
-              text-lg
-              font-medium
-              text-center
-            "
+            class="text-secondary dark:text-dark-secondary text-lg font-medium text-center"
           >
             {{ b.name }}
           </p>
@@ -397,21 +290,7 @@
           href="https://github.com/Internet-Society-Belgium/isTrust"
           target="_blank"
           rel="noopener noreferrer"
-          class="
-            inline-flex
-            flex-none
-            items-center
-            gap-3
-            py-4
-            px-6
-            bg-primary
-            text-dark-secondary
-            shadow
-            rounded-md
-            font-medium
-            group
-            hover:bg-opacity-90
-          "
+          class="inline-flex flex-none items-center gap-3 py-4 px-6 bg-primary text-dark-secondary shadow rounded-md font-medium group hover:bg-opacity-90"
         >
           <img
             :src="require(`~/assets/images/svg/github.svg?data`)"
@@ -462,7 +341,7 @@ interface Browser {
   icon: string
   link: string
   reviews: string
-  rating?: { average: number; count: number; users: number }
+  rating?: { average: number; count: number }
 }
 
 export default Vue.extend({
@@ -523,27 +402,13 @@ export default Vue.extend({
         reviews: matchedBrowser.reviews,
       }
 
-      if (uaBrowser === 'Chrome') {
-        fetch(
-          'https://chrome.google.com/webstore/ajax/detail?id=kinlknncggaihnhdcalijdmpbhbflalm&pv=20210820',
-          { method: 'POST' }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            this.browser.rating = {
-              average: data?.[0]?.[1]?.[0]?.[12],
-              count: data?.[0]?.[1]?.[0]?.[22],
-              users: data?.[0]?.[1]?.[0]?.[23],
-            }
-          })
-      } else if (uaBrowser === 'Firefox') {
+      if (uaBrowser === 'Firefox') {
         fetch('https://addons.mozilla.org/api/v5/addons/addon/istrust/')
           .then((res) => res.json())
           .then((data) => {
             this.browser.rating = {
               average: data?.ratings?.average,
               count: data?.ratings?.count,
-              users: data?.average_daily_users,
             }
           })
       }
