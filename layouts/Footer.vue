@@ -22,7 +22,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="underline"
-          >Internet Society Chapter Belgium</a
+          >Internet Society Chapter Belgium vzw/asbl</a
         ></span
       >
 
