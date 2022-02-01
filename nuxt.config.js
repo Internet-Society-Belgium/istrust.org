@@ -84,14 +84,14 @@ export default {
             file: 'en.js',
           },
           {
-            code: 'fr',
-            iso: 'fr',
-            file: 'fr.js',
-          },
-          {
             code: 'nl',
             iso: 'nl',
             file: 'nl.js',
+          },
+          {
+            code: 'fr',
+            iso: 'fr',
+            file: 'fr.js',
           },
         ],
         lazy: true,
@@ -106,13 +106,13 @@ export default {
         pages: {
           legal: {
             en: '/legal-mention',
-            fr: encodeURI('/mention-légal'),
             nl: '/wettelijke-vermelding',
+            fr: encodeURI('/mention-légal'),
           },
           privacy: {
             en: '/privacy-policy',
-            fr: encodeURI('/politique-de-confidentialité'),
             nl: '/privacybeleid',
+            fr: encodeURI('/politique-de-confidentialité'),
           },
         },
       },
