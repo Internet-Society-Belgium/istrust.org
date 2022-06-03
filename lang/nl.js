@@ -1,6 +1,6 @@
 export default {
   index: {
-    new_release: 'Nieuwe versie',
+    new_release: 'Nieuwste versie',
     days_ago: 'vandaag | {days} dag geleden | {days} dagen geleden',
     description: 'De betrouwbaarheid van elke website verifiëren',
     get_the_addon: 'Add-on toevoegen',
