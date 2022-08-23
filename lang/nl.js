@@ -22,6 +22,7 @@ export default {
     download: {
       title: 'Download',
       description: 'Alle beschikbare winkels',
+      soon: 'binnenkort',
     },
     opensource: {
       title: [

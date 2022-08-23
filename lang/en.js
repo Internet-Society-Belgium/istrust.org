@@ -22,6 +22,7 @@ export default {
     download: {
       title: 'Download',
       description: 'All available stores',
+      soon: 'soon',
     },
     opensource: {
       title: [

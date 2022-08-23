@@ -255,6 +255,24 @@
             {{ b.name }}
           </p>
         </a>
+        <a
+          class="relative p-10 flex flex-col gap-4 bg-container dark:bg-dark-container rounded-xl"
+        >
+          <span
+            class="absolute top-1 right-1 uppercase bg-secondary-light bg-opacity-20 text-secondary-light text-xs font-semibold px-2 py-1 rounded-lg"
+            >{{ $t('index.download.soon') }}
+          </span>
+          <img
+            :src="require(`~/assets/images/browser/safari.svg?data`)"
+            alt=""
+            class="h-16 w-16 pointer-events-none"
+          />
+          <p
+            class="text-secondary dark:text-dark-secondary text-lg font-medium text-center"
+          >
+            Safari
+          </p>
+        </a>
       </div>
     </section>
 
