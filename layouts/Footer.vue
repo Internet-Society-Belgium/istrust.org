@@ -17,24 +17,14 @@
             ? `${new Date().getFullYear()}`
             : `2021 - ${new Date().getFullYear()}`
         }}{{ ` © `
-        }}<a
-          href="https://internetsociety.be"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline"
+        }}<a href="https://internetsociety.be" target="_blank" class="underline"
           >Internet Society Chapter Belgium vzw/asbl</a
         ></span
       >
 
       <span>
         {{ $t('footer.made_by') }}
-        <a
-          href="https://etoome.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline"
-          >etoome</a
-        >
+        <a href="https://etoo.me" target="_blank" class="underline">etoome</a>
       </span>
     </p>
   </footer>
