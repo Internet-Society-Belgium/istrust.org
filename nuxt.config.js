@@ -58,7 +58,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    ['@nuxtjs/color-mode', { classSuffix: '' }],
+    // ['@nuxtjs/color-mode', { classSuffix: '' }],
     [
       '@nuxt/image',
       {

@@ -134,16 +134,12 @@
               :key="theme"
             >
               <nuxt-img
+                v-if="theme === 'light'"
                 format="webp"
                 :src="file"
                 alt=""
                 class="max-w-full rounded-xl border-4 border-secondary dark:border-dark-secondary border-opacity-20 dark:border-opacity-20 pointer-events-none"
-                :class="
-                  $colorMode.value === theme &&
-                  currentScreenshot === screenshotIndex
-                    ? ''
-                    : 'hidden'
-                "
+                :class="currentScreenshot === screenshotIndex ? '' : 'hidden'"
               />
             </div>
           </div>
