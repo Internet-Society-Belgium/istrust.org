@@ -67,4 +67,7 @@ export default {
         'In case of question related to privacy or data protection, please contact',
     },
   },
+  get: {
+    redirecting: 'Redirecting...',
+  },
 }

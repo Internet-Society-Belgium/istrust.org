@@ -304,31 +304,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { getBrowser } from '~/utils/browser'
+import { getBrowser, browsers } from '~/utils/browser'
 import Screenshots from '~/components/Screenshots.vue'
-
-const browsers = [
-  {
-    name: 'Chrome',
-    icon: 'chrome.svg',
-    link: 'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm',
-    reviews:
-      'https://chrome.google.com/webstore/detail/istrust/kinlknncggaihnhdcalijdmpbhbflalm/reviews',
-  },
-  {
-    name: 'Firefox',
-    icon: 'firefox.svg',
-    link: 'https://addons.mozilla.org/firefox/addon/istrust/?utm_source=istrust.org',
-    reviews: 'https://addons.mozilla.org/firefox/addon/istrust/reviews/',
-  },
-  {
-    name: 'Edge',
-    icon: 'edge.svg',
-    link: 'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
-    reviews:
-      'https://microsoftedge.microsoft.com/addons/detail/cphlaknpjmlpfaejjabjlgnekfkebeoo',
-  },
-]
 
 interface Version {
   name: string

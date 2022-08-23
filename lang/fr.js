@@ -68,4 +68,7 @@ export default {
         'En cas de question relative au respect de la vie privée ou à la protection des données, veuillez vous adresser à',
     },
   },
+  get: {
+    redirecting: 'Redirection...',
+  },
 }

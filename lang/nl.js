@@ -37,7 +37,6 @@ export default {
     },
   },
   footer: { made_by: 'Gemaakt door' },
-
   legal: {
     title: 'Wettelijke vermelding',
     description: 'Internet Society Chapter Belgium vzw/asbl (BE 0728.764.958)',
@@ -73,5 +72,8 @@ export default {
       contact:
         'In geval van vragen in verband met privacy of gegevensbescherming, gelieve contact op te nemen met',
     },
+  },
+  get: {
+    redirecting: 'Omleiding...',
   },
 }
