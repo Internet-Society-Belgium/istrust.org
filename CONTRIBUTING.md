@@ -1,4 +1,4 @@
-# [Propose changes](https://github.com/Internet-Society-Belgium/istrust.org/wiki)
+# Propose changes
 
 ## Prerequisites
 
